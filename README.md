@@ -7,6 +7,9 @@
 - Selector de habitación [0%]
 - Diferentes formas de pago [0%]
 - Gestión de clientes [0%] **(ReniecAPI)**
+- Gestión de empleados [0%]
+- Gestión de productos de limpieza [0%]
+- Gestión de proveedores [0%]
 
 <h2 align="left">Languages:</h3>
 <p align="left">
