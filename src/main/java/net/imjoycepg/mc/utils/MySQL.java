@@ -27,28 +27,20 @@ public class MySQL {
 
     public Connection connectDatabase(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-            FXAlert.showException(ex, "¡Error!");
-        }
-
-        try {
-
             final String host = DorisRooms.getInstance().getDatabase().getHost();
             final String port = DorisRooms.getInstance().getDatabase().getPort();
             final String database = DorisRooms.getInstance().getDatabase().getDatabase();
             final String user = DorisRooms.getInstance().getDatabase().getUsername();
             final String password = DorisRooms.getInstance().getDatabase().getPassword();
 
-            final String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
+            final String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?createdatabaseifnotexist=true";
+            
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             DorisRooms.getInstance().sceneMainMenu();
-        } catch (SQLException ex) {
+        } catch (SQLException | IOException | ClassNotFoundException ex) {
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showException(ex, "¡Error!");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return connection;
     }
