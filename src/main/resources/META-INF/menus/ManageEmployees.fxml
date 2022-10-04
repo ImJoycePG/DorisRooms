@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="net.imjoycepg.mc.controllers.ManageEmployees"
-            prefHeight="400.0" prefWidth="600.0">
-
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="780.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ManageEmployees">
+    <children>
+        <AnchorPane layoutX="31.0" layoutY="30.0" prefHeight="520.0" prefWidth="296.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="30.0">
+            <children>
+                <Label fx:id="label_username" layoutX="53.0" layoutY="19.0" text="Username:">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="rpta_username" layoutX="53.0" layoutY="36.0" prefHeight="25.0" prefWidth="161.0" />
+                <Label fx:id="label_password" layoutX="53.0" layoutY="85.0" text="Password:">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="rpta_password" layoutX="53.0" layoutY="102.0" prefHeight="25.0" prefWidth="161.0" />
+                <Button fx:id="button_register" defaultButton="true" layoutX="56.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font></Button>
+                <Button fx:id="button_edit" layoutX="56.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="button_update" layoutX="57.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="button_delete" layoutX="58.0" layoutY="349.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font>
+                </Button>
+                <Label fx:id="label_rol" layoutX="54.0" layoutY="144.0" text="Role:">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="role_select" layoutX="55.0" layoutY="161.0" prefHeight="25.0" prefWidth="161.0" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="14.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ButtonSalida.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="296.0" prefHeight="540.0" prefWidth="484.0" style="-fx-background-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-background-radius: 1em;">
+            <children>
+                <TableView fx:id="table_model" layoutX="20.0" layoutY="53.0" prefHeight="444.0" prefWidth="444.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="53.0">
+                    <columns>
+                        <TableColumn fx:id="table_column_username" prefWidth="133.0" resizable="false" text="Username" />
+                        <TableColumn fx:id="table_column_password" prefWidth="157.0" resizable="false" text="Password" />
+                        <TableColumn fx:id="table_column_function" editable="false" prefWidth="165.0" resizable="false" sortable="false" text="Function" />
+                    </columns>
+                </TableView>
+            </children></AnchorPane>
+    </children>
 </AnchorPane>

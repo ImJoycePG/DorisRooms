@@ -75,8 +75,8 @@ public class DorisRooms {
     public void sceneManageEmployees() throws IOException{
         scene = new Scene(loadFXML("ManageEmployees"));
         stage.setScene(scene);
-        stage.setResizable(true);
         stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
         stage.show();
     }
 }
