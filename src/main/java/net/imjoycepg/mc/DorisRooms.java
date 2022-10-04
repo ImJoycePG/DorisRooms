@@ -73,7 +73,7 @@ public class DorisRooms {
     }
 
     public void sceneManageEmployees() throws IOException{
-        scene = new Scene(loadFXML("ManageEmployees"));
+        scene = new Scene(loadFXML("EmployeesMenu"));
         stage.setScene(scene);
         stage.centerOnScreen();
         scene.setFill(Color.TRANSPARENT);
