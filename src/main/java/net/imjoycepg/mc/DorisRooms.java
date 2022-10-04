@@ -68,6 +68,15 @@ public class DorisRooms {
         scene = new Scene(loadFXML("MainMenu"));
         stage.setScene(scene);
         stage.setResizable(true);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void sceneManageEmployees() throws IOException{
+        scene = new Scene(loadFXML("ManageEmployees"));
+        stage.setScene(scene);
+        stage.setResizable(true);
+        stage.centerOnScreen();
         stage.show();
     }
 }
