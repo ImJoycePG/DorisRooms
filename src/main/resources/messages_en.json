@@ -1,0 +1,13 @@
+{
+  "MySQL_ErrorConnect": "There was an error connecting to the database!",
+  "TextEmptyTitle": "You forgot something",
+  "TextEmptyDescription": "You must fill in all the blanks",
+  "LoginMenu_LoginLabel": "Login",
+  "LoginMenu_LoginUsername": "Username:",
+  "LoginMenu_LoginPassword": "Password:",
+  "LoginMenu_ButtonLoginText": "Login",
+  "LoginMenu_MatchTitle": "Login",
+  "LoginMenu_MatchDescription": "You have successfully logged in",
+  "LoginMenu_MatchErrorTitle": "Incorrect data",
+  "LoginMenu_MatchErrorDescription": "It seems that the password or username is incorrect, please try again"
+}
