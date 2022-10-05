@@ -55,5 +55,9 @@ public class LoginMenu implements Initializable {
         }
 
         DorisRooms.getInstance().getLoginTable().loginUser(rpta_user.getText(), rpta_password.getText());
+
+        DorisRooms.getInstance().getLoginEntity().setLoginUser(rpta_user.getText());
+        DorisRooms.getInstance().getLoginEntity().setPassLogin(rpta_password.getText());
+        DorisRooms.getInstance().getLoginEntity().setLoginRole(DorisRooms.getInstance().getLoginTable().findRole(DorisRooms.getInstance().getLoginEntity().getLoginUser()));
     }
 }

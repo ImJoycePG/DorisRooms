@@ -15,7 +15,9 @@ import lombok.Setter;
 import net.imjoycepg.mc.utils.JsonConfig;
 import net.imjoycepg.mc.utils.Language;
 import net.imjoycepg.mc.utils.MySQL;
+import net.imjoycepg.mc.utils.Utilities;
 import net.imjoycepg.mc.utils.configs.Database;
+import net.imjoycepg.mc.utils.entity.LoginEntity;
 import net.imjoycepg.mc.utils.tables.LoginTable;
 
 import java.io.IOException;
@@ -35,7 +37,9 @@ public class DorisRooms {
     private Database database;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
     private final Image AlertImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/META-INF/images/DorisRoomsAlerts.png")));
+    private final Utilities utilities = new Utilities();
 
+    private final LoginEntity loginEntity = new LoginEntity();
     private final LoginTable loginTable = new LoginTable();
 
     public void startApp(Stage stage) throws IOException{
