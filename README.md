@@ -9,7 +9,7 @@
 - Gestión de clientes [0%] **(ReniecAPI)**
 - Gestión de empleados [100%] **(ReniecAPI)**
 - Gestión de productos de limpieza [0%]
-- Gestión de proveedores [100%]
+- Gestión de proveedores [100%] **(RucAPI)**
 
 <h2 align="left">Languages:</h3>
 <p align="left">
