@@ -74,5 +74,5 @@
   "ProvedMenu_AlertDeleteTitle": "¡Usuario removido!",
   "ProvedMenu_AlertDeleteDescription": "Este usuario fue removido de la base de datos.",
   "ProvedMenu_AlertUpdateTitle": "¡Usuario actualizado!",
-  "ProvedMenu_AlertUpdateDescription": "Los datos del usuario fueron actualizados.",
+  "ProvedMenu_AlertUpdateDescription": "Los datos del usuario fueron actualizados."
 }
