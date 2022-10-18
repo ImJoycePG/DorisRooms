@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EmployeesMenu implements Initializable {
+public class AdministratorMenu implements Initializable {
     @FXML
     private TableView<LoginEntity> table_model;
     @FXML
@@ -27,12 +27,15 @@ public class EmployeesMenu implements Initializable {
     @FXML
     private TextField rpta_username, rpta_password;
 
+    private String Administrator, Receptionist, Employee;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        role_select.getItems().addAll("Administrator", "Employee");
-        role_select.setValue("Employee");
         updateLanguage();
+        role_select.getItems().addAll(Administrator, Receptionist, Employee);
+        role_select.setValue(Employee);
         tableModel();
+        ButtonDisable();
     }
 
     private void updateLanguage(){
@@ -46,6 +49,9 @@ public class EmployeesMenu implements Initializable {
         table_column_username.setText(DorisRooms.getInstance().getLanguage().getConfig().get("AdministratorMenu_AdminTableViewUsername").getAsString());
         table_column_password.setText(DorisRooms.getInstance().getLanguage().getConfig().get("AdministratorMenu_AdminTableViewPassword").getAsString());
         table_column_function.setText(DorisRooms.getInstance().getLanguage().getConfig().get("AdministratorMenu_AdminTableViewRole").getAsString());
+        Administrator = DorisRooms.getInstance().getLanguage().getConfig().get("AdministratorMenu_AdminRoleAdministrator").getAsString();
+        Receptionist = DorisRooms.getInstance().getLanguage().getConfig().get("AdministratorMenu_AdminRoleReceptionist").getAsString();
+        Employee = DorisRooms.getInstance().getLanguage().getConfig().get("AdministratorMenu_AdminRoleEmployee").getAsString();
     }
 
 
@@ -75,7 +81,7 @@ public class EmployeesMenu implements Initializable {
     private void cleanText(){
         rpta_password.setText("");
         rpta_username.setText("");
-        role_select.setValue("Employee");
+        role_select.setValue(Employee);
         rpta_username.requestFocus();
     }
 

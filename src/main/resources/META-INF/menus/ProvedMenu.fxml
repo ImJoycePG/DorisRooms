@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="780.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ProvedMenu">
+    <children>
+        <AnchorPane layoutX="31.0" layoutY="30.0" prefHeight="520.0" prefWidth="296.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="30.0">
+            <children>
+                <Button fx:id="buttonRegister" defaultButton="true" layoutX="30.0" layoutY="303.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font></Button>
+                <Button fx:id="buttonEdit" layoutX="30.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="buttonUpdate" layoutX="139.0" layoutY="303.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="buttonDelete" layoutX="140.0" layoutY="346.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                    </font>
+                </Button>
+            <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="14.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ButtonSalida.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="label_dni" layoutX="47.0" layoutY="27.0" text="DNI:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_dni" layoutX="47.0" layoutY="44.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_name" layoutX="47.0" layoutY="82.0" text="Names:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_names" layoutX="47.0" layoutY="99.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_surnames" layoutX="47.0" layoutY="136.0" text="Surnames:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_surnames" layoutX="47.0" layoutY="153.0" prefHeight="25.0" prefWidth="161.0" />
+            <Button fx:id="buttonLoad" defaultButton="true" layoutX="64.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Load Info" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="296.0" prefHeight="540.0" prefWidth="484.0" style="-fx-background-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-background-radius: 1em;">
+            <children>
+                <TableView fx:id="table_model" layoutX="20.0" layoutY="53.0" prefHeight="444.0" prefWidth="444.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="53.0">
+                    <columns>
+                        <TableColumn fx:id="table_column_dni" editable="false" prefWidth="133.0" resizable="false" text="DNI" />
+                        <TableColumn fx:id="table_column_names" editable="false" prefWidth="157.0" resizable="false" text="Names" />
+                        <TableColumn fx:id="table_column_surnames" editable="false" prefWidth="165.0" resizable="false" sortable="false" text="Surnames" />
+                    </columns>
+                </TableView>
+            </children></AnchorPane>
+    </children>
+</AnchorPane>

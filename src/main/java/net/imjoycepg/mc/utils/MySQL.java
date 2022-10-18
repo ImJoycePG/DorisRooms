@@ -38,6 +38,7 @@ public class MySQL {
             connection = DriverManager.getConnection(url, user, password);
             DorisRooms.getInstance().sceneLoginMenu();
             LoginTable();
+            EmployeeTable();
             addRootUser();
 
         } catch (ClassNotFoundException | SQLException | IOException ex) {
@@ -55,6 +56,24 @@ public class MySQL {
                 "passLogin varchar(36) not null," +
                 "roleLogin varchar(16) not null," +
                 "CONSTRAINT ID_LOGIN PRIMARY KEY(idLogin)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void EmployeeTable(){
+        String table = "CREATE TABLE IF NOT EXISTS EmployeeTable(" +
+                "dniEmployee varchar(8) not null," +
+                "namesEmployee varchar(16) not null," +
+                "surnamesEmployee varchar(36) not null," +
+                "CONSTRAINT DNI_EMPLOYEE PRIMARY KEY(dniEmployee)" +
                 ");";
         try{
             connection = this.getConnection();

@@ -27,7 +27,7 @@ public class MainMenu implements Initializable {
 
         if(DorisRooms.getInstance().getLoginEntity().checkAdminOrRoot()){
             try {
-                DorisRooms.getInstance().sceneManageEmployees();
+                DorisRooms.getInstance().sceneManageEmployee();
             } catch (IOException e) {
                 FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
                 FXAlert.showException(e, "");
@@ -47,8 +47,12 @@ public class MainMenu implements Initializable {
 
     @FXML
     public void manageSuppliers(){
-        FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-        FXAlert.showInfo("Mantenimiento / Maintenance ");
+        try {
+            DorisRooms.getInstance().sceneManageProved();
+        } catch (IOException e) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(e, "");
+        }
 
 
     }
@@ -68,6 +72,23 @@ public class MainMenu implements Initializable {
         FXAlert.showInfo("Mantenimiento / Maintenance ");
 
     }
+
+    @FXML
+    public void manageLogin(){
+        if(DorisRooms.getInstance().getLoginEntity().checkAdminOrRoot()){
+            try {
+                DorisRooms.getInstance().sceneManageAdministrator();
+            } catch (IOException e) {
+                FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+                FXAlert.showException(e, "");
+            }
+        }else{
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("NoAccessAdministratorMenuTitle").getAsString(),
+                    null, DorisRooms.getInstance().getLanguage().getConfig().get("NoAccessAdministratorMenuDescription").getAsString());
+        }
+    }
+
 
     @FXML
     public void exitButton(){

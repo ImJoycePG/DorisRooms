@@ -29,6 +29,8 @@ public class LoginEntity {
     public LoginEntity() {}
 
     public boolean checkAdminOrRoot(){
-        return this.LoginRole.equalsIgnoreCase("Administrator") || this.LoginRole.equalsIgnoreCase("root");
+        return this.LoginRole.equalsIgnoreCase("Administrator") || this.LoginRole.equalsIgnoreCase("root") ||
+                this.LoginRole.equalsIgnoreCase("Administrador") || this.LoginRole.equalsIgnoreCase("Recepcionista") ||
+                this.LoginRole.equalsIgnoreCase("Receptionist");
     }
 }
