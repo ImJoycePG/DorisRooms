@@ -20,6 +20,7 @@ import net.imjoycepg.mc.utils.configs.Database;
 import net.imjoycepg.mc.utils.entity.LoginEntity;
 import net.imjoycepg.mc.utils.tables.EmployeeTable;
 import net.imjoycepg.mc.utils.tables.LoginTable;
+import net.imjoycepg.mc.utils.tables.ProvedTable;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -43,6 +44,7 @@ public class DorisRooms {
     private final LoginEntity loginEntity = new LoginEntity();
     private final LoginTable loginTable = new LoginTable();
     private final EmployeeTable employeeTable = new EmployeeTable();
+    private final ProvedTable provedTable = new ProvedTable();
 
     public void startApp(Stage stage) throws IOException{
         this.stage = stage;

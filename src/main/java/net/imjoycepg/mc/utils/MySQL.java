@@ -39,6 +39,7 @@ public class MySQL {
             DorisRooms.getInstance().sceneLoginMenu();
             LoginTable();
             EmployeeTable();
+            ProvedTable();
             addRootUser();
 
         } catch (ClassNotFoundException | SQLException | IOException ex) {
@@ -74,6 +75,26 @@ public class MySQL {
                 "namesEmployee varchar(16) not null," +
                 "surnamesEmployee varchar(36) not null," +
                 "CONSTRAINT DNI_EMPLOYEE PRIMARY KEY(dniEmployee)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void ProvedTable(){
+        String table = "CREATE TABLE IF NOT EXISTS ProvedTable(" +
+                "rucProved varchar(11) not null," +
+                "namesProved varchar(16) not null," +
+                "surnamesProved varchar(36) not null," +
+                "phoneProved varchar(36) not null," +
+                "emailProved varchar(36) not null," +
+                "CONSTRAINT RUC_PROVED PRIMARY KEY(rucProved)" +
                 ");";
         try{
             connection = this.getConnection();
