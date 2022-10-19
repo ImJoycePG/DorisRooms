@@ -6,7 +6,7 @@
  
 - Selector de habitación [0%]
 - Diferentes formas de pago [0%] **(VisaAPI, Yape, Plin)**
-- Gestión de clientes [0%] **(ReniecAPI)**
+- Gestión de clientes [100%] **(ReniecAPI)**
 - Gestión de empleados [100%] **(ReniecAPI)**
 - Gestión de productos de limpieza [0%]
 - Gestión de proveedores [100%] **(RucAPI)**
