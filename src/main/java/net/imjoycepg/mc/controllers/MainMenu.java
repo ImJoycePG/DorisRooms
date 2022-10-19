@@ -41,8 +41,12 @@ public class MainMenu implements Initializable {
 
     @FXML
     public void manageCustomers(){
-        FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-        FXAlert.showInfo("Mantenimiento / Maintenance ");
+        try {
+            DorisRooms.getInstance().sceneManageClient();
+        } catch (IOException e) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(e, "");
+        }
     }
 
     @FXML
@@ -92,6 +96,11 @@ public class MainMenu implements Initializable {
 
     @FXML
     public void exitButton(){
-        System.exit(0);
+        try {
+            DorisRooms.getInstance().sceneLoginAgain();
+        } catch (IOException e) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(e, "");
+        }
     }
 }

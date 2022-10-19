@@ -40,6 +40,7 @@ public class MySQL {
             LoginTable();
             EmployeeTable();
             ProvedTable();
+            ClientTable();
             addRootUser();
 
         } catch (ClassNotFoundException | SQLException | IOException ex) {
@@ -95,6 +96,24 @@ public class MySQL {
                 "phoneProved varchar(36) not null," +
                 "emailProved varchar(36) not null," +
                 "CONSTRAINT RUC_PROVED PRIMARY KEY(rucProved)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void ClientTable(){
+        String table = "CREATE TABLE IF NOT EXISTS ClientTable(" +
+                "dniClient varchar(8) not null," +
+                "namesClient varchar(16) not null," +
+                "surnamesClient varchar(36) not null," +
+                "CONSTRAINT DNI_CLIENT PRIMARY KEY(dniClient)" +
                 ");";
         try{
             connection = this.getConnection();
