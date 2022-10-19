@@ -8,7 +8,7 @@
 - Diferentes formas de pago [0%] **(VisaAPI, Yape, Plin)**
 - Gestión de clientes [100%] **(ReniecAPI)**
 - Gestión de empleados [100%] **(ReniecAPI)**
-- Gestión de productos de limpieza [0%]
+- Gestión de productos de limpieza [40%]
 - Gestión de proveedores [100%] **(RucAPI)**
 
 <h2 align="left">Languages:</h3>
