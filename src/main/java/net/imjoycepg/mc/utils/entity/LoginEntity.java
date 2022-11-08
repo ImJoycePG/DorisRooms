@@ -20,7 +20,8 @@ public class LoginEntity {
     public LoginEntity(String user, String password) {
         this.userLogin = user;
         this.passLogin = password;
-    }public LoginEntity(String user, String password, String role) {
+    }
+    public LoginEntity(String user, String password, String role) {
         this.userLogin = user;
         this.passLogin = password;
         this.roleLogin = role;

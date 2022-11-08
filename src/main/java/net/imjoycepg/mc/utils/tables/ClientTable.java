@@ -67,7 +67,7 @@ public class ClientTable {
     public void updateClient(ClientEntity client){
         PreparedStatement ps = null;
         try{
-            String table = "UPDATE clientTable SET namesClient=?, surnamesClient=? WHERE dniClient=?";
+            String table = "UPDATE ClientTable SET namesClient=?, surnamesClient=? WHERE dniClient=?";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
             ps.setString(3, client.getDniClient());
             ps.setString(1, client.getNamesClient());
@@ -84,7 +84,7 @@ public class ClientTable {
         PreparedStatement ps = null;
         ObservableList<ClientEntity> loginObservableList = FXCollections.observableArrayList();
         try{
-            String table = "SELECT * FROM clientTable;";
+            String table = "SELECT * FROM ClientTable;";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
             rs = ps.executeQuery();
             while(rs.next()){
