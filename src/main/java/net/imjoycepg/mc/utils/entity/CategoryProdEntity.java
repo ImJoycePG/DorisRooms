@@ -12,4 +12,11 @@ public class CategoryProdEntity {
     private String nameCategory;
     private String descCategory;
 
+    public CategoryProdEntity(String idCategory, String nameCategory, String descCategory) {
+        this.idCategory = idCategory;
+        this.nameCategory = nameCategory;
+        this.descCategory = descCategory;
+    }
+
+    public CategoryProdEntity(){}
 }

@@ -93,5 +93,20 @@
   "ClientMenu_AlertDeleteTitle": "User removed!",
   "ClientMenu_AlertDeleteDescription": "The user was removed from the database",
   "ClientMenu_AlertUpdateTitle": "Updated user!",
-  "ClientMenu_AlertUpdateDescription": "The data of this user was updated"
+  "ClientMenu_AlertUpdateDescription": "The data of this user was updated",
+  "CategoryMenu_ButtonRegisterText": "Register",
+  "CategoryMenu_ButtonEditText": "Modify",
+  "CategoryMenu_ButtonUpdateText": "Update",
+  "CategoryMenu_ButtonDeleteText": "Delete",
+  "CategoryMenu_IDCategoryLabel": "idCategory:",
+  "CategoryMenu_NamesLabel": "Name:",
+  "CategoryMenu_DescriptionLabel": "Description:",
+  "CategoryMenu_FindTitle": "Unexpected error!",
+  "CategoryMenu_FindDescription": "A user with the same name has been found",
+  "CategoryMenu_NotFindTitle": "Unexpected error!",
+  "CategoryMenu_NotFindDescription": "This user was not found.",
+  "CategoryMenu_AlertDeleteTitle": "User removed!",
+  "CategoryMenu_AlertDeleteDescription": "The user was removed from the database",
+  "CategoryMenu_AlertUpdateTitle": "Updated user!",
+  "CategoryMenu_AlertUpdateDescription": "The data of this user was updated"
 }

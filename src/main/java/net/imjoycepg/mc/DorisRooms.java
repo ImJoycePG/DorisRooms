@@ -18,10 +18,7 @@ import net.imjoycepg.mc.utils.MySQL;
 import net.imjoycepg.mc.utils.Utilities;
 import net.imjoycepg.mc.utils.configs.Database;
 import net.imjoycepg.mc.utils.entity.LoginEntity;
-import net.imjoycepg.mc.utils.tables.ClientTable;
-import net.imjoycepg.mc.utils.tables.EmployeeTable;
-import net.imjoycepg.mc.utils.tables.LoginTable;
-import net.imjoycepg.mc.utils.tables.ProvedTable;
+import net.imjoycepg.mc.utils.tables.*;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -47,6 +44,7 @@ public class DorisRooms {
     private final EmployeeTable employeeTable = new EmployeeTable();
     private final ProvedTable provedTable = new ProvedTable();
     private final ClientTable clientTable = new ClientTable();
+    private final CategoryProdTable categoryProdTable = new CategoryProdTable();
 
     public void startApp(Stage stage) throws IOException{
         this.stage = stage;
@@ -65,7 +63,7 @@ public class DorisRooms {
         return fxmlLoader.load();
     }
 
-    public void sceneLoginMenu() throws IOException{
+    public void sceneLoginMenu() throws IOException {
         scene = new Scene(loadFXML("LoginMenu"));
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
@@ -133,6 +131,14 @@ public class DorisRooms {
 
     public void sceneManageRooms() throws IOException{
         scene = new Scene(loadFXML("RoomsMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageCategoryMenu() throws IOException{
+        scene = new Scene(loadFXML("CategoryMenu"));
         stage.setScene(scene);
         stage.centerOnScreen();
         scene.setFill(Color.TRANSPARENT);

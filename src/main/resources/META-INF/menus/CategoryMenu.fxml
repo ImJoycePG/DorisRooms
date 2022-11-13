@@ -9,57 +9,57 @@
     <children>
         <AnchorPane layoutX="31.0" layoutY="30.0" prefHeight="520.0" prefWidth="296.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="30.0">
             <children>
-                <Label fx:id="label_username" layoutX="53.0" layoutY="19.0" text="idCategory:">
+                <Label fx:id="label_idCategory" layoutX="53.0" layoutY="19.0" text="idCategory:">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <TextField fx:id="rpta_username" layoutX="53.0" layoutY="36.0" prefHeight="25.0" prefWidth="161.0" />
-                <Label fx:id="label_password" layoutX="53.0" layoutY="85.0" text="Name:">
+                <TextField fx:id="rpta_idCategory" layoutX="53.0" layoutY="36.0" prefHeight="25.0" prefWidth="161.0" />
+                <Label fx:id="label_name" layoutX="53.0" layoutY="85.0" text="Name:">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="rpta_password" layoutX="53.0" layoutY="102.0" prefHeight="25.0" prefWidth="161.0" />
-                <Button fx:id="button_register" defaultButton="true" layoutX="56.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+                <Button fx:id="buttonRegister" defaultButton="true" layoutX="56.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#registerCategory" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
                     <font>
                         <Font name="Comic Sans MS" size="12.0" />
                     </font></Button>
-                <Button fx:id="button_edit" layoutX="56.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+                <Button fx:id="buttonEdit" layoutX="56.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#modifyCategory" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
                     <font>
                         <Font name="Comic Sans MS" size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_update" layoutX="57.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+                <Button fx:id="buttonUpdate" layoutX="57.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#updateCategory" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
                     <font>
                         <Font name="Comic Sans MS" size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_delete" layoutX="58.0" layoutY="349.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                <Button fx:id="buttonDelete" layoutX="58.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#deleteCategory" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Comic Sans MS" size="12.0" />
                     </font>
                 </Button>
-                <Label fx:id="label_rol" layoutX="54.0" layoutY="144.0" text="Description:">
+                <Label fx:id="label_desc" layoutX="54.0" layoutY="144.0" text="Description:">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="14.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="14.0" layoutY="406.0" onMouseClicked="#closeSubMenu" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/ButtonSalida.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="rpta_password1" layoutX="58.0" layoutY="167.0" prefHeight="25.0" prefWidth="161.0" />
+            <TextField fx:id="rpta_name" layoutX="53.0" layoutY="102.0" prefHeight="25.0" prefWidth="161.0" />
+            <TextField fx:id="rpta_desc" layoutX="53.0" layoutY="161.0" prefHeight="25.0" prefWidth="161.0" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="296.0" prefHeight="540.0" prefWidth="484.0" style="-fx-background-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-background-radius: 1em;">
             <children>
                 <TableView fx:id="table_model" layoutX="20.0" layoutY="53.0" prefHeight="444.0" prefWidth="444.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="53.0">
                     <columns>
-                        <TableColumn fx:id="table_column_username" prefWidth="133.0" resizable="false" text="idCategory" />
-                        <TableColumn fx:id="table_column_password" prefWidth="157.0" resizable="false" text="Name" />
-                        <TableColumn fx:id="table_column_function" editable="false" prefWidth="165.0" resizable="false" sortable="false" text="Description" />
+                        <TableColumn fx:id="table_column_idCategory" prefWidth="133.0" resizable="false" text="idCategory" />
+                        <TableColumn fx:id="table_column_name" prefWidth="157.0" resizable="false" text="Name" />
+                        <TableColumn fx:id="table_column_desc" editable="false" prefWidth="165.0" resizable="false" sortable="false" text="Description" />
                     </columns>
                 </TableView>
             </children></AnchorPane>

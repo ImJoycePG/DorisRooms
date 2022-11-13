@@ -104,7 +104,7 @@ public class ClientMenu implements Initializable {
         employee.setDniClient(dniEmployee);
         employee.setNamesClient(rpta_names.getText());
         employee.setSurnamesClient(rpta_surnames.getText());
-        DorisRooms.getInstance().getClientTable().insertclient(employee);
+        DorisRooms.getInstance().getClientTable().insertClient(employee);
 
         tableModel();
         cleanText();

@@ -16,6 +16,15 @@ public class ProductMenu implements Initializable {
     }
 
     @FXML
+    public void openCategoryMenu(){
+        try {
+            DorisRooms.getInstance().sceneManageCategoryMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void backMenu(){
         try {
             DorisRooms.getInstance().sceneMainMenu();

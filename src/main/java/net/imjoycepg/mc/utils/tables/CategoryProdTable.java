@@ -4,24 +4,23 @@ import com.dustinredmond.fxalert.FXAlert;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import net.imjoycepg.mc.DorisRooms;
-import net.imjoycepg.mc.utils.entity.ClientEntity;
+import net.imjoycepg.mc.utils.entity.CategoryProdEntity;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ClientTable {
-
+public class CategoryProdTable {
     private ResultSet rs = null;
 
-    public void insertClient(ClientEntity client){
+    public void insertCategory(CategoryProdEntity categoryProd){
         PreparedStatement ps = null;
         try{
-            String insert = "INSERT INTO ClientTable(dniClient, namesClient, surnamesClient) VALUES (?,?,?)";
+            String insert = "INSERT INTO CategoryProdTable(idCategory, nameCategory, descCategory) VALUES (?,?,?)";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(insert);
-            ps.setString(1, client.getDniClient());
-            ps.setString(2 , client.getNamesClient());
-            ps.setString(3, client.getSurnamesClient());
+            ps.setString(1 , categoryProd.getIdCategory());
+            ps.setString(2 , categoryProd.getNameCategory());
+            ps.setString(3, categoryProd.getDescCategory());
             ps.executeUpdate();
         }catch (SQLException ex){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
@@ -29,34 +28,33 @@ public class ClientTable {
         }
     }
 
-    public ClientEntity findClient(String client){
+    public CategoryProdEntity findCategory(String categoryProd){
         PreparedStatement ps = null;
-        ClientEntity login = null;
+        CategoryProdEntity categoryProdEntity = null;
         try{
-            String find = "SELECT * FROM ClientTable WHERE dniClient=?";
+            String find = "SELECT * FROM CategoryProdTable WHERE idCategory=?";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(find);
-            ps.setString(1, client);
+            ps.setString(1, categoryProd);
             rs = ps.executeQuery();
 
             if(rs.next()){
-                String namesClient = rs.getString("namesClient");
-                String surnamesClient = rs.getString("surnamesClient");
-                login = new ClientEntity(client, namesClient, surnamesClient);
+                String nameCategory = rs.getString("nameCategory");
+                String descCategory = rs.getString("descCategory");
+                categoryProdEntity = new CategoryProdEntity(categoryProd, nameCategory, descCategory);
             }
         }catch (SQLException ex){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString(), null, null);
         }
-        return login;
+        return categoryProdEntity;
     }
 
-    public void deleteClient(String user){
+    public void deleteCategory(String categoryProd){
         PreparedStatement ps = null;
-
         try{
-            String table = "DELETE FROM ClientTable WHERE dniClient=?";
+            String table = "SELECT FROM CategoryProdTable WHERE idCategory=?";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
-            ps.setString(1, user);
+            ps.setString(1, categoryProd);
             ps.executeUpdate();
         }catch (SQLException ex){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
@@ -64,14 +62,14 @@ public class ClientTable {
         }
     }
 
-    public void updateClient(ClientEntity client){
+    public void updateCategory(CategoryProdEntity categoryProd){
         PreparedStatement ps = null;
         try{
-            String table = "UPDATE ClientTable SET namesClient=?, surnamesClient=? WHERE dniClient=?";
+            String table = "UPDATE CategoryProdTable SET nameCategory=?, descCategory=? WHERE idCategory=?";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
-            ps.setString(3, client.getDniClient());
-            ps.setString(1, client.getNamesClient());
-            ps.setString(2, client.getSurnamesClient());
+            ps.setString(3, categoryProd.getIdCategory());
+            ps.setString(1, categoryProd.getNameCategory());
+            ps.setString(2, categoryProd.getDescCategory());
             ps.executeUpdate();
         }catch (SQLException ex){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
@@ -79,25 +77,25 @@ public class ClientTable {
         }
     }
 
-
-    public ObservableList<ClientEntity> showClients(){
+    public ObservableList<CategoryProdEntity> showCategory() {
         PreparedStatement ps = null;
-        ObservableList<ClientEntity> loginObservableList = FXCollections.observableArrayList();
-        try{
-            String table = "SELECT * FROM ClientTable;";
+        ObservableList<CategoryProdEntity> categoryProdEntities = FXCollections.observableArrayList();
+
+        try {
+            String table = "SELECT * FROM CategoryProdTable;";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
             rs = ps.executeQuery();
-            while(rs.next()){
-                loginObservableList.add(new ClientEntity(
-                        rs.getString("dniClient"),
-                        rs.getString("namesClient"),
-                        rs.getString("surnamesClient")
+
+            while (rs.next()) {
+                categoryProdEntities.add(new CategoryProdEntity(
+                        rs.getString("idCategory"),
+                        rs.getString("nameCategory"),
+                        rs.getString("descCategory")
                 ));
             }
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return loginObservableList;
+        return categoryProdEntities;
     }
 }

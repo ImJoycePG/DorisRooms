@@ -129,10 +129,10 @@ public class MySQL {
     }
 
     private void CategoryProduct(){
-        String table = "CREATE TABLE IF NOT EXISTS CategoryProduct(" +
+        String table = "CREATE TABLE IF NOT EXISTS CategoryProdTable(" +
                 "idCategory varchar(5) not null," +
                 "nameCategory varchar(45) not null," +
-                "descProduct varchar(45) not null," +
+                "descCategory varchar(45) not null," +
                 "CONSTRAINT CATEGORY_ID_PRODUCT PRIMARY KEY(idCategory)" +
                 ");";
         try{
