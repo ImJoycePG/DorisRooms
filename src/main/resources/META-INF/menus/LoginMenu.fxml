@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.LoginMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.LoginMenu">
     <children>
         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="624.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="47.0">
             <children>
@@ -28,8 +28,13 @@
                         <TextField fx:id="rpta_user" layoutX="56.0" layoutY="105.0" prefHeight="26.0" prefWidth="222.0" />
                         <PasswordField fx:id="rpta_password" layoutX="56.0" layoutY="150.0" prefHeight="26.0" prefWidth="222.0" />
                         <Button fx:id="button_signIn" layoutX="119.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#loginEvent" prefHeight="38.0" prefWidth="96.0" style="-fx-background-radius: 1em; -fx-background-color: orange;" text="Login" textAlignment="CENTER" />
-                        <ChoiceBox fx:id="language_select" layoutX="93.0" layoutY="371.0" prefWidth="150.0" />
-                        <Label layoutX="81.0" layoutY="345.0" text="Choise language/Elije idioma" />
+                        <ChoiceBox fx:id="language_select" layoutX="92.0" layoutY="287.0" prefWidth="150.0" />
+                        <Label layoutX="63.0" layoutY="261.0" text="Choise language/Elije idioma" />
+                  <ImageView fitHeight="76.0" fitWidth="74.0" layoutX="130.0" layoutY="324.0" onMouseClicked="#exitMenu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ButtonSalida.png" />
+                     </image>
+                  </ImageView>
                     </children></AnchorPane>
                 <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="470.0" prefWidth="337.0" style="-fx-background-color: linear-gradient(to left top, #1e1926, #32324a, #414f72, #476e9c, #4191c6, #37a7d7, #32bee5, #3ad4ef, #66e0e4, #8deadb, #b2f3d7, #d3fbd8); -fx-background-radius: 1em;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                     <children>

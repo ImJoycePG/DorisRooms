@@ -60,4 +60,9 @@ public class LoginMenu implements Initializable {
         DorisRooms.getInstance().getLoginEntity().setPassLogin(rpta_password.getText());
         DorisRooms.getInstance().getLoginEntity().setLoginRole(DorisRooms.getInstance().getLoginTable().findRole(DorisRooms.getInstance().getLoginEntity().getLoginUser()));
     }
+
+    @FXML
+    public void exitMenu(){
+        System.exit(0);
+    }
 }

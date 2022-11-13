@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(to right bottom, #290664, #412072, #573881, #6c4f8f, #81679e, #937aaa, #a58eb7, #b6a2c4, #c8b7d2, #dacce1, #ebe1f0, #fdf7ff);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ProductMenu">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(to right bottom, #290664, #412072, #573881, #6c4f8f, #81679e, #937aaa, #a58eb7, #b6a2c4, #c8b7d2, #dacce1, #ebe1f0, #fdf7ff);;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ProductMenu">
    <children>
-      <TableView layoutX="25.0" layoutY="77.0" prefHeight="623.0" prefWidth="1040.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
+      <TableView layoutX="25.0" layoutY="77.0" prefHeight="531.0" prefWidth="1030.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
         <columns>
           <TableColumn prefWidth="174.0" text="idProduct" />
           <TableColumn prefWidth="322.0" text="Nombre" />
@@ -14,8 +16,15 @@
         </columns>
       </TableView>
       <TextField layoutX="25.0" layoutY="27.0" prefHeight="37.0" prefWidth="273.0" promptText="Search" />
-      <Button layoutX="819.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="new order" />
-      <Button layoutX="949.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="delete order" />
-      <Button layoutX="342.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="new category" />
+      <Button layoutX="949.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="New Order" />
+      <Button layoutX="342.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="New Category" />
+      <Button layoutX="470.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="New Product" />
+      <Button layoutX="592.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="Edit Product" />
+      <Button layoutX="714.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="Delete Product" />
+      <ImageView fitHeight="70.0" fitWidth="126.0" layoutX="985.0" layoutY="636.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ButtonSalida.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -41,6 +41,8 @@ public class MySQL {
             EmployeeTable();
             ProvedTable();
             ClientTable();
+            CategoryProduct();
+            ProductTable();
             addRootUser();
 
         } catch (ClassNotFoundException | SQLException | IOException ex) {
@@ -114,6 +116,46 @@ public class MySQL {
                 "namesClient varchar(16) not null," +
                 "surnamesClient varchar(36) not null," +
                 "CONSTRAINT DNI_CLIENT PRIMARY KEY(dniClient)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void CategoryProduct(){
+        String table = "CREATE TABLE IF NOT EXISTS CategoryProduct(" +
+                "idCategory varchar(5) not null," +
+                "nameCategory varchar(45) not null," +
+                "descProduct varchar(45) not null," +
+                "CONSTRAINT CATEGORY_ID_PRODUCT PRIMARY KEY(idCategory)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void ProductTable(){
+        String table = "CREATE TABLE IF NOT EXISTS ProductTable(" +
+                "idProduct varchar(5) not null," +
+                "nameProduct varchar(45) not null," +
+                "joinDate date not null," +
+                "idCategory varchar(5) not null," +
+                "rucProved varchar(11) not null," +
+                "CONSTRAINT ID_PRODUCT PRIMARY KEY(idProduct)," +
+                "CONSTRAINT ID_CATEGORY_PRODUCT FOREIGN KEY(idCategory) references CategoryProduct(idCategory)," +
+                "CONSTRAINT RUC_PROVED_PRODUCT FOREIGN KEY(rucProved) references ProvedTable(rucProved)" +
                 ");";
         try{
             connection = this.getConnection();

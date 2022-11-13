@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="780.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ProvedMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="780.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ProvedMenu">
     <children>
         <AnchorPane layoutX="31.0" layoutY="30.0" prefHeight="520.0" prefWidth="296.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="30.0">
             <children>
@@ -44,13 +44,13 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="rpta_names" layoutX="47.0" layoutY="83.0" prefHeight="25.0" prefWidth="161.0" />
+            <TextField fx:id="rpta_names" editable="false" layoutX="47.0" layoutY="83.0" prefHeight="25.0" prefWidth="161.0" />
             <Label fx:id="label_surnames" layoutX="47.0" layoutY="116.0" text="Surnames:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="rpta_surnames" layoutX="47.0" layoutY="133.0" prefHeight="25.0" prefWidth="161.0" />
+            <TextField fx:id="rpta_surnames" editable="false" layoutX="47.0" layoutY="133.0" prefHeight="25.0" prefWidth="161.0" />
             <Button fx:id="buttonLoad" defaultButton="true" layoutX="64.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#loadProved" prefHeight="26.0" prefWidth="127.0" text="Load Info" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
@@ -74,11 +74,11 @@
             <children>
                 <TableView fx:id="table_model" layoutX="20.0" layoutY="53.0" prefHeight="444.0" prefWidth="444.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="53.0">
                     <columns>
-                        <TableColumn fx:id="table_column_ruc" editable="false" prefWidth="70.0" resizable="false" text="RUC" />
-                        <TableColumn fx:id="table_column_names" editable="false" prefWidth="93.0" resizable="false" text="Names" />
-                        <TableColumn fx:id="table_column_surnames" editable="false" prefWidth="84.0" resizable="false" sortable="false" text="Surnames" />
+                        <TableColumn fx:id="table_column_ruc" editable="false" prefWidth="104.0" resizable="false" text="RUC" />
+                        <TableColumn fx:id="table_column_names" editable="false" prefWidth="91.0" resizable="false" text="Names" />
+                        <TableColumn fx:id="table_column_surnames" editable="false" prefWidth="86.0" resizable="false" sortable="false" text="Surnames" />
                   <TableColumn fx:id="table_column_phone" editable="false" prefWidth="88.0" resizable="false" sortable="false" text="Phone" />
-                  <TableColumn fx:id="table_column_email" editable="false" prefWidth="108.0" resizable="false" sortable="false" text="Email" />
+                  <TableColumn fx:id="table_column_email" editable="false" prefWidth="74.0" resizable="false" sortable="false" text="Email" />
                     </columns>
                 </TableView>
             </children></AnchorPane>

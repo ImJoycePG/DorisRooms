@@ -122,4 +122,20 @@ public class DorisRooms {
         scene.setFill(Color.TRANSPARENT);
         stage.show();
     }
+
+    public void sceneManageProduct() throws IOException{
+        scene = new Scene(loadFXML("ProductMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageRooms() throws IOException{
+        scene = new Scene(loadFXML("RoomsMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
 }

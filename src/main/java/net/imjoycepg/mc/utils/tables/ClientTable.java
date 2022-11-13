@@ -33,7 +33,7 @@ public class ClientTable {
         PreparedStatement ps = null;
         ClientEntity login = null;
         try{
-            String find = "SELECT * FROM clientTable WHERE dniClient=?";
+            String find = "SELECT * FROM ClientTable WHERE dniClient=?";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(find);
             ps.setString(1, client);
             rs = ps.executeQuery();

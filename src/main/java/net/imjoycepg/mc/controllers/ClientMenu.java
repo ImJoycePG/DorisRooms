@@ -67,9 +67,9 @@ public class ClientMenu implements Initializable {
     }
 
     private void tableModel(){
-        table_column_dni.setCellValueFactory(new PropertyValueFactory<>("dniEmployee"));
-        table_column_names.setCellValueFactory(new PropertyValueFactory<>("namesEmployee"));
-        table_column_surnames.setCellValueFactory(new PropertyValueFactory<>("surnamesEmployee"));
+        table_column_dni.setCellValueFactory(new PropertyValueFactory<>("dniClient"));
+        table_column_names.setCellValueFactory(new PropertyValueFactory<>("namesClient"));
+        table_column_surnames.setCellValueFactory(new PropertyValueFactory<>("surnamesClient"));
 
         ObservableList<ClientEntity> loginObservableList = DorisRooms.getInstance().getClientTable().showClients();
         table_model.setItems(loginObservableList);
@@ -92,7 +92,7 @@ public class ClientMenu implements Initializable {
             return;
         }
         String dniEmployee = rpta_dni.getText();
-        if(DorisRooms.getInstance().getEmployeeTable().findEmployee(dniEmployee) != null){
+        if(DorisRooms.getInstance().getClientTable().findClient(dniEmployee) != null){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("ClientMenu_FindTitle").getAsString(),
                     null, DorisRooms.getInstance().getLanguage().getConfig().get("ClientMenu_FindDescription").getAsString());
@@ -119,7 +119,7 @@ public class ClientMenu implements Initializable {
             return;
         }
         String dniEmployee = rpta_dni.getText();
-        if(DorisRooms.getInstance().getEmployeeTable().findEmployee(dniEmployee) == null){
+        if(DorisRooms.getInstance().getClientTable().findClient(dniEmployee) == null){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("ClientMenu_NotFindTitle").getAsString(),
                     null, DorisRooms.getInstance().getLanguage().getConfig().get("ClientMenu_NotFindDescription").getAsString());
@@ -154,7 +154,7 @@ public class ClientMenu implements Initializable {
     @FXML
     public void deleteEmployee(){
         String dniEmployee = rpta_dni.getText();
-        DorisRooms.getInstance().getEmployeeTable().deleteEmployee(dniEmployee);
+        DorisRooms.getInstance().getClientTable().deleteClient(dniEmployee);
         FXAlert.showInfo(DorisRooms.getInstance().getLanguage().getConfig().get("ClientMenu_AlertDeleteTitle").getAsString(),
                 null, DorisRooms.getInstance().getLanguage().getConfig().get("ClientMenu_AlertDeleteDescription").getAsString());
 
