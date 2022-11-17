@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="400.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.EditProductMenu">
+   <children>
+      <ImageView fx:id="image_si" fitHeight="68.0" fitWidth="65.0" layoutX="383.0" layoutY="213.0" onMouseClicked="#modifyComplete" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ButtonConfirm.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image_no" fitHeight="68.0" fitWidth="65.0" layoutX="490.0" layoutY="213.0" onMouseClicked="#closeSubMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ButtonCancel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="196.0" fitWidth="163.0" layoutX="522.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/DorisRoomsAlerts.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label_idProduct" layoutX="46.0" layoutY="18.0" text="idProduct:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_idProduct" layoutX="46.0" layoutY="48.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_name" layoutX="289.0" layoutY="18.0" text="Name:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_name" layoutX="289.0" layoutY="48.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_stock" layoutX="46.0" layoutY="110.0" text="Stock:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_stock" layoutX="46.0" layoutY="140.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_dateJoin" layoutX="289.0" layoutY="110.0" text="Date Join:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_dateJoin" layoutX="289.0" layoutY="140.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_idCategory" layoutX="46.0" layoutY="195.0" text="idCategory:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_idCategory" layoutX="46.0" layoutY="225.0" prefHeight="40.0" prefWidth="304.0" style="-fx-background-radius: 1em;" />
+   </children>
+</AnchorPane>

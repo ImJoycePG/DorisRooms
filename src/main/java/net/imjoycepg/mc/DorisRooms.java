@@ -18,6 +18,7 @@ import net.imjoycepg.mc.utils.MySQL;
 import net.imjoycepg.mc.utils.Utilities;
 import net.imjoycepg.mc.utils.configs.Database;
 import net.imjoycepg.mc.utils.entity.LoginEntity;
+import net.imjoycepg.mc.utils.entity.ProductTemp;
 import net.imjoycepg.mc.utils.tables.*;
 
 import java.io.IOException;
@@ -45,6 +46,9 @@ public class DorisRooms {
     private final ProvedTable provedTable = new ProvedTable();
     private final ClientTable clientTable = new ClientTable();
     private final CategoryProdTable categoryProdTable = new CategoryProdTable();
+    private final NewProductTable newProductTable = new NewProductTable();
+
+    private final ProductTemp productTemp = new ProductTemp();
 
     public void startApp(Stage stage) throws IOException{
         this.stage = stage;
@@ -142,6 +146,20 @@ public class DorisRooms {
         stage.setScene(scene);
         stage.centerOnScreen();
         scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageNewProduct() throws IOException{
+        scene = new Scene(loadFXML("NewProductMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void sceneManageEditProduct() throws IOException{
+        scene = new Scene(loadFXML("EditProductMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 }

@@ -150,12 +150,11 @@ public class MySQL {
         String table = "CREATE TABLE IF NOT EXISTS ProductTable(" +
                 "idProduct varchar(5) not null," +
                 "nameProduct varchar(45) not null," +
-                "joinDate date not null," +
+                "stockProduct int not null," +
+                "dateJoin date not null," +
                 "idCategory varchar(5) not null," +
-                "rucProved varchar(11) not null," +
                 "CONSTRAINT ID_PRODUCT PRIMARY KEY(idProduct)," +
-                "CONSTRAINT ID_CATEGORY_PRODUCT FOREIGN KEY(idCategory) references CategoryProduct(idCategory)," +
-                "CONSTRAINT RUC_PROVED_PRODUCT FOREIGN KEY(rucProved) references ProvedTable(rucProved)" +
+                "CONSTRAINT ID_CATEGORY_PRODUCT FOREIGN KEY(idCategory) references CategoryProdTable(idCategory)" +
                 ");";
         try{
             connection = this.getConnection();

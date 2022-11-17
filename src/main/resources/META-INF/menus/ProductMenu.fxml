@@ -6,21 +6,21 @@
 <?import javafx.scene.layout.*?>
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(to right bottom, #290664, #412072, #573881, #6c4f8f, #81679e, #937aaa, #a58eb7, #b6a2c4, #c8b7d2, #dacce1, #ebe1f0, #fdf7ff);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.ProductMenu">
    <children>
-      <TableView layoutX="25.0" layoutY="77.0" prefHeight="531.0" prefWidth="1030.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
+      <TableView fx:id="table_model" layoutX="25.0" layoutY="77.0" prefHeight="531.0" prefWidth="1030.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn prefWidth="174.0" text="idProduct" />
-          <TableColumn prefWidth="322.0" text="Nombre" />
-            <TableColumn prefWidth="113.0" text="Stock" />
-            <TableColumn prefWidth="303.0" text="Fecha de Ingreso" />
-            <TableColumn prefWidth="117.0" text="idCategory" />
+          <TableColumn fx:id="table_column_idProduct" prefWidth="174.0" text="idProduct" />
+          <TableColumn fx:id="table_column_nameProduct" prefWidth="322.0" text="Name" />
+            <TableColumn fx:id="table_column_stockProduct" prefWidth="113.0" text="Stock" />
+            <TableColumn fx:id="table_column_dateJoin" prefWidth="303.0" text="Date Join" />
+            <TableColumn fx:id="table_column_idCategory" prefWidth="117.0" text="idCategory" />
         </columns>
       </TableView>
       <TextField layoutX="25.0" layoutY="27.0" prefHeight="37.0" prefWidth="273.0" promptText="Search" />
       <Button layoutX="949.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="New Order" />
       <Button layoutX="342.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openCategoryMenu" prefHeight="37.0" prefWidth="106.0" text="New Category" />
-      <Button layoutX="470.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="New Product" />
-      <Button layoutX="592.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="Edit Product" />
-      <Button layoutX="714.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="Delete Product" />
+      <Button layoutX="470.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openNewProduct" prefHeight="37.0" prefWidth="106.0" text="New Product" />
+      <Button layoutX="592.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#modifyProduct" prefHeight="37.0" prefWidth="106.0" text="Edit Product" />
+      <Button layoutX="714.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#deleteProduct" prefHeight="37.0" prefWidth="106.0" text="Delete Product" />
       <ImageView fitHeight="70.0" fitWidth="126.0" layoutX="985.0" layoutY="636.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ButtonSalida.png" />
