@@ -108,4 +108,27 @@ public class NewProductTable {
         }
         return categoryProdEntities;
     }
+
+    public NewProductEntity findProductName(String nameProduct2){
+        PreparedStatement ps = null;
+        NewProductEntity newProductEntity = null;
+        try{
+            String find = "SELECT * FROM ProductTable WHERE nameProduct=?";
+            ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(find);
+            ps.setString(1, nameProduct2);
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                String nameProduct = rs.getString("nameProduct");
+                int stockProduct = rs.getInt("stockProduct");
+                Date dateJoin = rs.getDate("dateJoin");
+                String idCategory = rs.getString("idCategory");
+                newProductEntity = new NewProductEntity(nameProduct2, nameProduct, stockProduct, dateJoin, idCategory);
+            }
+        }catch (SQLException ex){
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString(), null, null);
+        }
+        return newProductEntity;
+    }
 }

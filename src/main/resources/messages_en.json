@@ -128,5 +128,7 @@
   "EditProductMenu_FindTitle": "Unexpected error!",
   "EditProductMenu_FindDescription": "A user with the same name has been found",
   "EditProductMenu_NotFindTitle": "Unexpected error!",
-  "EditProductMenu_NotFindDescription": "This user was not found."
+  "EditProductMenu_NotFindDescription": "This user was not found.",
+  "OrderMenu_NotFindTitle": "Unexpected error!",
+  "OrderMenu_NotFindDescription": "This user was not found."
 }

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ticket" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0891c12f-0ea7-46ee-95f0-7c2b8541a9f9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DorisRooms.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="C_ID-ORDER" class="java.lang.String"/>
+	<parameter name="fileID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM OrderTable ot
+INNER JOIN OrderProductTable opt ON opt.idOrder = ot.idOrder
+INNER JOIN ProductTable pt ON pt.idProduct = opt.idProduct
+WHERE ot.idOrder like $P{C_ID-ORDER}]]>
+	</queryString>
+	<field name="idOrder" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idOrder"/>
+		<property name="com.jaspersoft.studio.field.label" value="idOrder"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderTable"/>
+	</field>
+	<field name="dateOrder" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dateOrder"/>
+		<property name="com.jaspersoft.studio.field.label" value="dateOrder"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderTable"/>
+	</field>
+	<field name="dniEmployee" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dniEmployee"/>
+		<property name="com.jaspersoft.studio.field.label" value="dniEmployee"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderTable"/>
+	</field>
+	<field name="rucProved" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="rucProved"/>
+		<property name="com.jaspersoft.studio.field.label" value="rucProved"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderTable"/>
+	</field>
+	<field name="idOrderProd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idOrderProd"/>
+		<property name="com.jaspersoft.studio.field.label" value="idOrderProd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderProductTable"/>
+	</field>
+	<field name="priceOrderProd" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="priceOrderProd"/>
+		<property name="com.jaspersoft.studio.field.label" value="priceOrderProd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderProductTable"/>
+	</field>
+	<field name="stockOrderProd" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="stockOrderProd"/>
+		<property name="com.jaspersoft.studio.field.label" value="stockOrderProd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderProductTable"/>
+	</field>
+	<field name="idProduct" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idProduct"/>
+		<property name="com.jaspersoft.studio.field.label" value="idProduct"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderProductTable"/>
+	</field>
+	<field name="COLUMN_9" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idOrder"/>
+		<property name="com.jaspersoft.studio.field.label" value="idOrder"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderProductTable"/>
+	</field>
+	<field name="COLUMN_10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idProduct"/>
+		<property name="com.jaspersoft.studio.field.label" value="idProduct"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductTable"/>
+	</field>
+	<field name="nameProduct" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nameProduct"/>
+		<property name="com.jaspersoft.studio.field.label" value="nameProduct"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductTable"/>
+	</field>
+	<field name="stockProduct" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="stockProduct"/>
+		<property name="com.jaspersoft.studio.field.label" value="stockProduct"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductTable"/>
+	</field>
+	<field name="dateJoin" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dateJoin"/>
+		<property name="com.jaspersoft.studio.field.label" value="dateJoin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductTable"/>
+	</field>
+	<field name="idCategory" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idCategory"/>
+		<property name="com.jaspersoft.studio.field.label" value="idCategory"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductTable"/>
+	</field>
+	<variable name="SUM_PRICE" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{priceOrderProd}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="0" width="153" height="30" uuid="b17b3834-6afe-4347-a2b8-9b951357f193"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="19"/>
+				</textElement>
+				<text><![CDATA[DORIS ROOMS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="31" width="200" height="36" uuid="c6150dbc-383f-4a42-9db4-53bea764e3bc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11"/>
+				</textElement>
+				<text><![CDATA[Dirección: Av. César Vallejo 230, Calipuy, Santiago de Chuco, La Libertad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="62" width="200" height="14" uuid="f62c1349-901e-4e2f-a298-e4d6a6c3eaf4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11"/>
+				</textElement>
+				<text><![CDATA[Telef: 986624499]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="93" width="380" height="19" uuid="b2091348-aa82-4de0-8f35-ffde0325fd4c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial Black" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre del Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="93" width="170" height="19" uuid="c22c3e16-fc16-4b30-8b9f-02578bfa73ab"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial Black" size="13"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="111" width="554" height="1" uuid="664af39e-bb12-412c-8ab5-e227708e8370"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="8" width="480" height="30" uuid="eb3effcc-804c-4c28-a265-4da90fa209e5"/>
+				<textElement>
+					<font fontName="Adobe Devanagari" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nameProduct}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="8" width="80" height="30" uuid="b1f8c632-3883-43ba-9133-0cdeb71e7f37"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Devanagari" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{priceOrderProd}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="180" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="100" height="30" uuid="b9ebf00f-ffbe-41fc-b30c-7c4f2db6969f"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="56" width="100" height="30" uuid="ec41e6d4-88f6-4e7c-8500-de0ea819f39f"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[RUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="96" width="100" height="30" uuid="638c7ff9-a0df-453f-af4b-cde1ab2f914d"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="454" y="105" width="100" height="30" uuid="72b494f3-6bb0-4d9e-8928-0edde7c49f2b"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dniEmployee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="56" width="100" height="30" uuid="423fcece-31c2-4b83-994f-e01aec38440c"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rucProved}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="160" width="89" height="20" uuid="a58f2cb1-59f2-4c43-ab7f-2193b4ff06f7"/>
+				<textElement textAlignment="Right">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateOrder}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="80" width="554" height="1" uuid="0d1f6dca-5b8d-439d-8cc6-d558f9cdc42c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="122" width="554" height="1" uuid="5304b418-78de-4c12-8291-c35cdd7653b3"/>
+			</line>
+			<textField>
+				<reportElement x="455" y="6" width="100" height="30" uuid="a20d42a6-4e2c-422e-8ced-2cfa3a921ca5"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_PRICE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="26" width="554" height="1" uuid="a55b9ac4-2967-4336-8dbb-7b5c8a062fcc"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

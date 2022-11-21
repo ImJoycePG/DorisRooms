@@ -126,5 +126,16 @@
   "NewProductMenu_FindTitle": "Unexpected error!",
   "NewProductMenu_FindDescription": "A user with the same name has been found",
   "NewProductMenu_NotFindTitle": "Unexpected error!",
-  "NewProductMenu_NotFindDescription": "This user was not found."
+  "NewProductMenu_NotFindDescription": "This user was not found.",
+  "EditProductMenu_IDProductLabel": "idProduct:",
+  "EditProductMenu_NameProductLabel": "Name:",
+  "EditProductMenu_StockLabel": "Stock:",
+  "EditProductMenu_DateJoinLabel": "Date Join:",
+  "EditProductMenu_IDCategoryLabel": "idCategory:",
+  "EditProductMenu_FindTitle": "Unexpected error!",
+  "EditProductMenu_FindDescription": "A user with the same name has been found",
+  "EditProductMenu_NotFindTitle": "Unexpected error!",
+  "EditProductMenu_NotFindDescription": "This user was not found.",
+  "OrderMenu_NotFindTitle": "Unexpected error!",
+  "OrderMenu_NotFindDescription": "This user was not found."
 }

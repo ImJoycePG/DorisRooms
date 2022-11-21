@@ -52,7 +52,7 @@ public class CategoryProdTable {
     public void deleteCategory(String categoryProd){
         PreparedStatement ps = null;
         try{
-            String table = "SELECT FROM CategoryProdTable WHERE idCategory=?";
+            String table = "DELETE FROM CategoryProdTable WHERE idCategory=?";
             ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
             ps.setString(1, categoryProd);
             ps.executeUpdate();

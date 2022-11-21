@@ -65,7 +65,7 @@ public class EditProductMenu implements Initializable {
         }
 
         String idProduct = rpta_idProduct.getText();
-        if(DorisRooms.getInstance().getNewProductTable().findProduct(idProduct) != null){
+        if(DorisRooms.getInstance().getNewProductTable().findProduct(idProduct) == null){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("EditProductMenu_FindTitle").getAsString(),
                     null, DorisRooms.getInstance().getLanguage().getConfig().get("EditProductMenu_FindDescription").getAsString());

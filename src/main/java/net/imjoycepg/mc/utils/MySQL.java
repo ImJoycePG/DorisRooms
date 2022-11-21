@@ -44,6 +44,8 @@ public class MySQL {
             CategoryProduct();
             ProductTable();
             addRootUser();
+            OrderTable();
+            OrderProductTable();
 
         } catch (ClassNotFoundException | SQLException | IOException ex) {
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
@@ -155,6 +157,49 @@ public class MySQL {
                 "idCategory varchar(5) not null," +
                 "CONSTRAINT ID_PRODUCT PRIMARY KEY(idProduct)," +
                 "CONSTRAINT ID_CATEGORY_PRODUCT FOREIGN KEY(idCategory) references CategoryProdTable(idCategory)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void OrderTable(){
+        String table = "CREATE TABLE IF NOT EXISTS OrderTable(" +
+                "idOrder varchar(5) not null," +
+                "dateOrder date not null," +
+                "dniEmployee varchar(8) not null," +
+                "rucProved varchar(11) not null," +
+                "CONSTRAINT ID_ORDER PRIMARY KEY(idOrder)," +
+                "CONSTRAINT DNI_EMPLOYEE_ORDER FOREIGN KEY(dniEmployee) references EmployeeTable(dniEmployee)," +
+                "CONSTRAINT RUC_PROVED_ORDER FOREIGN KEY(rucProved) references ProvedTable(rucProved)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void OrderProductTable(){
+        String table = "CREATE TABLE IF NOT EXISTS OrderProductTable(" +
+                "idOrderProd varchar(5) not null," +
+                "priceOrderProd double not null," +
+                "stockOrderProd int not null," +
+                "idProduct varchar(5) not null," +
+                "idOrder varchar(5) not null," +
+                "CONSTRAINT ID_ORDER_PRODUCT PRIMARY KEY(idOrderProd)," +
+                "CONSTRAINT IDPRODUCT_ORDER FOREIGN KEY(idProduct) references ProductTable(idProduct)," +
+                "CONSTRAINT IDORDER_PRODUCT FOREIGN KEY(idOrder) references OrderTable(idOrder)" +
                 ");";
         try{
             connection = this.getConnection();

@@ -1,6 +1,18 @@
 package net.imjoycepg.mc;
 
 import com.dustinredmond.fxalert.FXAlert;
+import com.google.api.client.auth.oauth2.Credential;
+import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
+import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
+import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
+import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
+import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.client.util.store.FileDataStoreFactory;
+import com.google.api.services.drive.Drive;
+import com.google.api.services.drive.DriveScopes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +24,17 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.Getter;
 import lombok.Setter;
-import net.imjoycepg.mc.utils.JsonConfig;
-import net.imjoycepg.mc.utils.Language;
-import net.imjoycepg.mc.utils.MySQL;
-import net.imjoycepg.mc.utils.Utilities;
+import net.imjoycepg.mc.utils.*;
 import net.imjoycepg.mc.utils.configs.Database;
 import net.imjoycepg.mc.utils.entity.LoginEntity;
+import net.imjoycepg.mc.utils.entity.OrderProductTemp;
 import net.imjoycepg.mc.utils.entity.ProductTemp;
 import net.imjoycepg.mc.utils.tables.*;
 
-import java.io.IOException;
+import java.io.*;
+import java.security.GeneralSecurityException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -36,7 +49,9 @@ public class DorisRooms {
     protected Stage stage;
     private Scene scene;
     private Database database;
+
     private final Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+    private Drive drive;
     private final Image AlertImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/META-INF/images/DorisRoomsAlerts.png")));
     private final Utilities utilities = new Utilities();
 
@@ -47,10 +62,32 @@ public class DorisRooms {
     private final ClientTable clientTable = new ClientTable();
     private final CategoryProdTable categoryProdTable = new CategoryProdTable();
     private final NewProductTable newProductTable = new NewProductTable();
+    private final OrderTable orderTable = new OrderTable();
 
     private final ProductTemp productTemp = new ProductTemp();
+    private final OrderProductTemp orderProductTemp = new OrderProductTemp();
+    private final ReportUtil reportUtil = new ReportUtil();
 
-    public void startApp(Stage stage) throws IOException{
+    private final JsonFactory JsonFactory = GsonFactory.getDefaultInstance();
+    private final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_FILE);
+
+    public Credential getGoogleDrive(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
+        InputStream in = DorisRooms.class.getResourceAsStream("/credentials.json");
+        if (in == null) {
+            throw new FileNotFoundException("Resource not found: " + "credentials.json");
+        }
+        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JsonFactory, new InputStreamReader(in));
+        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JsonFactory, clientSecrets,SCOPES)
+                .setDataStoreFactory(new FileDataStoreFactory(new File("tokens")))
+                .setAccessType("offline")
+                .build();
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+        Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+        return credential;
+    }
+
+    public void startApp(Stage stage) throws IOException, GeneralSecurityException {
+        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         this.stage = stage;
         try{
             database = JsonConfig.loadConfig(Database.class);
@@ -59,6 +96,10 @@ public class DorisRooms {
             FXAlert.showException(e, "");
             return;
         }
+        drive = new Drive.Builder(HTTP_TRANSPORT, JsonFactory, getGoogleDrive(HTTP_TRANSPORT))
+                .setApplicationName("DorisRoomsApp")
+                .build();
+
         mySQL.connectDatabase();
     }
 
@@ -160,6 +201,22 @@ public class DorisRooms {
         scene = new Scene(loadFXML("EditProductMenu"));
         stage.setScene(scene);
         stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void sceneManageOrderMenu() throws IOException{
+        scene = new Scene(loadFXML("OrderMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageOrderTicketMenu() throws IOException{
+        scene = new Scene(loadFXML("TicketMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
         stage.show();
     }
 }

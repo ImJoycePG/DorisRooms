@@ -15,16 +15,17 @@
             <TableColumn fx:id="table_column_idCategory" prefWidth="117.0" text="idCategory" />
         </columns>
       </TableView>
-      <TextField layoutX="25.0" layoutY="27.0" prefHeight="37.0" prefWidth="273.0" promptText="Search" />
-      <Button layoutX="949.0" layoutY="27.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" text="New Order" />
-      <Button layoutX="342.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openCategoryMenu" prefHeight="37.0" prefWidth="106.0" text="New Category" />
-      <Button layoutX="470.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openNewProduct" prefHeight="37.0" prefWidth="106.0" text="New Product" />
-      <Button layoutX="592.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#modifyProduct" prefHeight="37.0" prefWidth="106.0" text="Edit Product" />
-      <Button layoutX="714.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#deleteProduct" prefHeight="37.0" prefWidth="106.0" text="Delete Product" />
+      <TextField fx:id="searchText" layoutX="25.0" layoutY="27.0" onMouseClicked="#searchForName" prefHeight="37.0" prefWidth="194.0" promptText="Search" />
+      <Button fx:id="buttonOrder" layoutX="821.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openOrderMenu" prefHeight="37.0" prefWidth="106.0" text="New Order" />
+      <Button fx:id="buttonCategory" layoutX="250.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openCategoryMenu" prefHeight="37.0" prefWidth="106.0" text="New Category" />
+      <Button fx:id="buttonRegister" layoutX="378.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openNewProduct" prefHeight="37.0" prefWidth="106.0" text="New Product" />
+      <Button fx:id="buttonModify" layoutX="500.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#modifyProduct" prefHeight="37.0" prefWidth="106.0" text="Edit Product" />
+      <Button fx:id="buttonDelete" layoutX="622.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#deleteProduct" prefHeight="37.0" prefWidth="106.0" text="Delete Product" />
       <ImageView fitHeight="70.0" fitWidth="126.0" layoutX="985.0" layoutY="636.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ButtonSalida.png" />
          </image>
       </ImageView>
+      <Button fx:id="buttonTicket" layoutX="948.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#reportTicket" prefHeight="37.0" prefWidth="106.0" text="Ticket Order" />
    </children>
 </AnchorPane>

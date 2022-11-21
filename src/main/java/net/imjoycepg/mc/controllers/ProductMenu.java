@@ -2,10 +2,13 @@ package net.imjoycepg.mc.controllers;
 
 import com.dustinredmond.fxalert.FXAlert;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.imjoycepg.mc.DorisRooms;
 import net.imjoycepg.mc.utils.entity.NewProductEntity;
@@ -20,6 +23,10 @@ public class ProductMenu implements Initializable {
     private TableView<NewProductEntity> table_model;
     @FXML
     private TableColumn<NewProductEntity, String> table_column_idCategory, table_column_idProduct, table_column_nameProduct, table_column_stockProduct, table_column_dateJoin;
+    @FXML
+    private TextField searchText;
+    private final ObservableList<NewProductEntity> inventoryObservableList2 = DorisRooms.getInstance().getNewProductTable().showProducts();
+    private final FilteredList<NewProductEntity> filteredData = new FilteredList<>(inventoryObservableList2, p->true);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,9 +104,53 @@ public class ProductMenu implements Initializable {
     }
 
     @FXML
+    public void openOrderMenu(){
+        try {
+            DorisRooms.getInstance().getOrderProductTemp().setIdOrder(DorisRooms.getInstance().getUtilities().orderUUID());
+            DorisRooms.getInstance().sceneManageOrderMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void backMenu(){
         try {
             DorisRooms.getInstance().sceneMainMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void searchForName(){
+        String nameProduct = searchText.getText();
+        DorisRooms.getInstance().getNewProductTable().findProductName(nameProduct);
+        searchText.textProperty().addListener((observable, oldValue, newValue) ->{
+            filteredData.setPredicate(firstNameClient -> {
+                if(newValue == null || newValue.isEmpty()) return true;
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if(String.valueOf(firstNameClient.getNameProduct()).toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if(String.valueOf(firstNameClient.getIdProduct()).toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<NewProductEntity> sortedList = new SortedList<>(filteredData);
+
+        sortedList.comparatorProperty().bind(table_model.comparatorProperty());
+        table_model.setItems(sortedList);
+    }
+
+    @FXML
+    public void reportTicket(){
+        try {
+            DorisRooms.getInstance().sceneManageOrderTicketMenu();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -11,6 +11,9 @@ import net.imjoycepg.mc.utils.entity.NewProductEntity;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class NewProductMenu implements Initializable {
@@ -20,10 +23,14 @@ public class NewProductMenu implements Initializable {
     @FXML
     private TextField rpta_idProduct, rpta_name, rpta_stock, rpta_dateJoin, rpta_idCategory;
 
+    private final DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    private final java.util.Date date = Calendar.getInstance().getTime();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateLanguage();
         cleanText();
+        rpta_dateJoin.setText(formatter.format(date));
     }
 
     private void updateLanguage(){
