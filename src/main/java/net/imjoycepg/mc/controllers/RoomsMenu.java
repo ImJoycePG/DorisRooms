@@ -15,6 +15,24 @@ public class RoomsMenu implements Initializable {
     }
 
     @FXML
+    public void openNewRoom(){
+        try {
+            DorisRooms.getInstance().sceneManageRoomsNewMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void openTypeMenu(){
+        try {
+            DorisRooms.getInstance().sceneManageRoomsTypeMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void backMenu(){
         try {
             DorisRooms.getInstance().sceneMainMenu();

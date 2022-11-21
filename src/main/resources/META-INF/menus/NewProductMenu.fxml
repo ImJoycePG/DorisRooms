@@ -40,7 +40,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="rpta_idCategory" layoutX="62.0" layoutY="255.0" prefHeight="40.0" prefWidth="304.0" style="-fx-background-radius: 1em;" />
       <ImageView fitHeight="105.0" fitWidth="81.0" layoutX="685.0" layoutY="370.0" onMouseClicked="#closeSubMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ButtonSalida.png" />
@@ -51,5 +50,6 @@
             <Image url="@../images/RegisterComplete.png" />
          </image>
       </ImageView>
+      <ComboBox fx:id="rpta_idCategory" layoutX="62.0" layoutY="263.0" prefHeight="40.0" prefWidth="220.0" />
    </children>
 </AnchorPane>

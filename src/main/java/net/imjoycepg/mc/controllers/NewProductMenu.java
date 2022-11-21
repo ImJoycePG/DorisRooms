@@ -3,6 +3,7 @@ package net.imjoycepg.mc.controllers;
 import com.dustinredmond.fxalert.FXAlert;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import net.imjoycepg.mc.DorisRooms;
@@ -21,7 +22,9 @@ public class NewProductMenu implements Initializable {
     @FXML
     private Label label_idProduct, label_name, label_stock, label_dateJoin, label_idCategory;
     @FXML
-    private TextField rpta_idProduct, rpta_name, rpta_stock, rpta_dateJoin, rpta_idCategory;
+    private TextField rpta_idProduct, rpta_name, rpta_stock, rpta_dateJoin;
+    @FXML
+    private ComboBox<String> rpta_idCategory;
 
     private final DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     private final java.util.Date date = Calendar.getInstance().getTime();
@@ -31,6 +34,7 @@ public class NewProductMenu implements Initializable {
         updateLanguage();
         cleanText();
         rpta_dateJoin.setText(formatter.format(date));
+        rpta_idCategory.setItems(DorisRooms.getInstance().getCategoryProdTable().listCategories());
     }
 
     private void updateLanguage(){
@@ -46,7 +50,7 @@ public class NewProductMenu implements Initializable {
         rpta_name.setText("");
         rpta_stock.setText("");
         rpta_dateJoin.setText("");
-        rpta_idCategory.setText("");
+        rpta_idCategory.setValue("");
         rpta_idProduct.requestFocus();
     }
 
@@ -54,7 +58,7 @@ public class NewProductMenu implements Initializable {
     public void registerButton(){
         if(rpta_idProduct.getText().isEmpty() || rpta_name.getText().isEmpty() ||
             rpta_stock.getText().isEmpty() || rpta_dateJoin.getText().isEmpty() ||
-            rpta_idCategory.getText().isEmpty()){
+            rpta_idCategory.getValue().isEmpty()){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("TextEmptyTitle").getAsString(),
                     null, DorisRooms.getInstance().getLanguage().getConfig().get("TextEmptyDescription").getAsString());
@@ -70,11 +74,11 @@ public class NewProductMenu implements Initializable {
             return;
         }
 
-        if(DorisRooms.getInstance().getCategoryProdTable().findCategory(rpta_idCategory.getText()) == null){
+        if(DorisRooms.getInstance().getCategoryProdTable().findCategory(rpta_idCategory.getValue()) == null){
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
             FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("NewProductMenu_NotFindTitle").getAsString(),
                     null, DorisRooms.getInstance().getLanguage().getConfig().get("NewProductMenu_NotFindDescription").getAsString());
-            rpta_idCategory.setText("");
+            rpta_idCategory.setValue("");
             rpta_idCategory.requestFocus();
             return;
         }
@@ -84,7 +88,7 @@ public class NewProductMenu implements Initializable {
         newProductEntity.setNameProduct(rpta_name.getText());
         newProductEntity.setStockProduct(Integer.parseInt(rpta_stock.getText()));
         newProductEntity.setDateJoin(Date.valueOf(rpta_dateJoin.getText()));
-        newProductEntity.setIdCategory(rpta_idCategory.getText());
+        newProductEntity.setIdCategory(rpta_idCategory.getValue().substring(0, 5));
         DorisRooms.getInstance().getNewProductTable().insertProduct(newProductEntity);
 
         cleanText();

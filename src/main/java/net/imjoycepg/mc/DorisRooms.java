@@ -63,6 +63,11 @@ public class DorisRooms {
     private final CategoryProdTable categoryProdTable = new CategoryProdTable();
     private final NewProductTable newProductTable = new NewProductTable();
     private final OrderTable orderTable = new OrderTable();
+    private final MethodTable methodTable = new MethodTable();
+    private final RoomsReservationTable roomsReservationTable = new RoomsReservationTable();
+    private final RoomsRentalTable roomsRentalTable = new RoomsRentalTable();
+    private final RoomsTypeTable roomsTypeTable = new RoomsTypeTable();
+    private final RoomsTable roomsTable = new RoomsTable();
 
     private final ProductTemp productTemp = new ProductTemp();
     private final OrderProductTemp orderProductTemp = new OrderProductTemp();
@@ -71,7 +76,7 @@ public class DorisRooms {
     private final JsonFactory JsonFactory = GsonFactory.getDefaultInstance();
     private final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_FILE);
 
-    public Credential getGoogleDrive(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
+    protected Credential getGoogleDrive(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         InputStream in = DorisRooms.class.getResourceAsStream("/credentials.json");
         if (in == null) {
             throw new FileNotFoundException("Resource not found: " + "credentials.json");
@@ -82,8 +87,7 @@ public class DorisRooms {
                 .setAccessType("offline")
                 .build();
         LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-        return credential;
+        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
     public void startApp(Stage stage) throws IOException, GeneralSecurityException {
@@ -214,6 +218,22 @@ public class DorisRooms {
 
     public void sceneManageOrderTicketMenu() throws IOException{
         scene = new Scene(loadFXML("TicketMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageRoomsNewMenu() throws IOException{
+        scene = new Scene(loadFXML("RoomsNewMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageRoomsTypeMenu() throws IOException{
+        scene = new Scene(loadFXML("RoomsTypeMenu"));
         stage.setScene(scene);
         stage.centerOnScreen();
         scene.setFill(Color.TRANSPARENT);

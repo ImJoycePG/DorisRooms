@@ -109,7 +109,7 @@ WHERE ot.idOrder like $P{C_ID-ORDER}]]>
 				<textElement textAlignment="Center">
 					<font fontName="Courier New" size="11"/>
 				</textElement>
-				<text><![CDATA[Telef: 986624499]]></text>
+				<text><![CDATA[Telef: 948148087]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="93" width="380" height="19" uuid="b2091348-aa82-4de0-8f35-ffde0325fd4c"/>

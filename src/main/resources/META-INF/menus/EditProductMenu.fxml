@@ -50,6 +50,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="rpta_idCategory" layoutX="46.0" layoutY="225.0" prefHeight="40.0" prefWidth="304.0" style="-fx-background-radius: 1em;" />
+      <ComboBox fx:id="rpta_idCategory" layoutX="46.0" layoutY="225.0" prefHeight="40.0" prefWidth="314.0" />
    </children>
 </AnchorPane>

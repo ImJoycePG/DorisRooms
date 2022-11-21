@@ -46,6 +46,11 @@ public class MySQL {
             addRootUser();
             OrderTable();
             OrderProductTable();
+            RoomsTypeTable();
+            RoomsTable();
+            MethodTable();
+            RoomsRentalTable();
+            RoomsReservationTable();
 
         } catch (ClassNotFoundException | SQLException | IOException ex) {
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
@@ -200,6 +205,114 @@ public class MySQL {
                 "CONSTRAINT ID_ORDER_PRODUCT PRIMARY KEY(idOrderProd)," +
                 "CONSTRAINT IDPRODUCT_ORDER FOREIGN KEY(idProduct) references ProductTable(idProduct)," +
                 "CONSTRAINT IDORDER_PRODUCT FOREIGN KEY(idOrder) references OrderTable(idOrder)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void RoomsTypeTable(){
+        String table = "CREATE TABLE IF NOT EXISTS RoomsTypeTable(" +
+                "idTypeRooms varchar(5) not null," +
+                "nameTypeRooms varchar(45) not null," +
+                "CONSTRAINT ID_TYPE_ROOMS PRIMARY KEY(idTypeRooms)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void RoomsTable(){
+        String table = "CREATE TABLE IF NOT EXISTS RoomsTable(" +
+                "idRooms varchar(5) not null," +
+                "descRooms varchar(45) not null," +
+                "priceRooms double not null," +
+                "obsRooms varchar(45) not null," +
+                "idTypeRooms varchar(5) not null," +
+                "CONSTRAINT ID_ROOMS PRIMARY KEY(idRooms)," +
+                "CONSTRAINT IDTYPE_ROOMS FOREIGN KEY(idTypeRooms) references RoomsTypeTable(idTypeRooms)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void MethodTable(){
+        String table = "CREATE TABLE IF NOT EXISTS MethodTable(" +
+                "idMethod varchar(5) not null," +
+                "typeMethod varchar(45) not null," +
+                "descMethod varchar(45) not null," +
+                "CONSTRAINT ID_METHOD PRIMARY KEY(idMethod)" +
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void RoomsRentalTable(){
+        String table = "CREATE TABLE IF NOT EXISTS RoomsRentalTable(" +
+                "idRental varchar(5) not null," +
+                "dateJoin date not null," +
+                "dateLeave date not null" +
+                "obsRental varchar (45) not null" +
+                "dniEmployee varchar (8) not null," +
+                "dniClient varchar (8) not null," +
+                "idRooms varchar(5) not null," +
+                "idMethod varchar (5) not null," +
+                "CONSTRAINT IDRENTAL PRIMARY KEY(idRental),"+
+                "CONSTRAINT DNIEMPLOYEE_RENTAL FOREIGN KEY(dniEmployee) references EmployeeTable(dniEmployee),"+
+                "CONSTRAINT DNICLIENT_RENTAL FOREIGN KEY(dniClient)references ClientTable(dniClient),"+
+                "CONSTRAINT IDROOMS_RENTAL FOREIGN KEY(idRooms)references RoomsTable(idRooms),"+
+                "CONSTRAINT IDMETHOR_RENTAL FOREIGN KEY(idMethod) references MethorTable(idMethod)"+
+                ");";
+        try{
+            connection = this.getConnection();
+            Statement statement = null;
+            statement = connection.createStatement();
+            statement.executeUpdate(table);
+        }catch (SQLException ex) {
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString());
+        }
+    }
+
+    private void RoomsReservationTable(){
+        String table = "CREATE TABLE IF NOT EXISTS RoomsReservationTable(" +
+                "idReservation varchar(5) not null," +
+                "dateJoin date not null," +
+                "dateLeave date not null," +
+                "formReservation varchar (45) not null," +
+                "dniEmployee varchar (8) not null," +
+                "dniClient varchar (8) not null," +
+                "idRooms varchar(5) not null," +
+                "CONSTRAINT IDRESERVATION PRIMARY KEY(idReservation),"+
+                "CONSTRAINT DNIEMPLOYEE_RESERVATION FOREIGN KEY(dniEmployee) references EmployeeTable(dniEmployee),"+
+                "CONSTRAINT DNICLIENT_RESERVATION FOREIGN KEY(dniClient)references ClientTable(dniClient),"+
+                "CONSTRAINT IDROOMS_RESERVATION FOREIGN KEY(idRooms)references RoomsTable(idRooms)"+
                 ");";
         try{
             connection = this.getConnection();
