@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,17 +14,17 @@
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#modifyRental" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="472.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#updateRental" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#deleteRental" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>

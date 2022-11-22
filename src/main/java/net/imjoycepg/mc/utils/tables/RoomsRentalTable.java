@@ -60,6 +60,40 @@ public class RoomsRentalTable {
         return login;
     }
 
+    public void updateRental(RoomsRentalEntity roomsEntity){
+        PreparedStatement ps = null;
+        try{
+            String table = "UPDATE RoomsRentalTable SET dateJoin=?, dateLeave=?, obsRental=?, dniEmployee=?, dniClient=?, idRooms=?, idMethod=? WHERE idRental=?";
+            ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
+            ps.setString(8, roomsEntity.getIdRental());
+            ps.setDate(1, new Date(roomsEntity.getDateJoin().getTime()));
+            ps.setDate(2, new Date(roomsEntity.getDateLeave().getTime()));
+            ps.setString(3, roomsEntity.getObsRental());
+            ps.setString(4, roomsEntity.getDniEmployee());
+            ps.setString(5, roomsEntity.getDniClient());
+            ps.setString(6, roomsEntity.getIdRooms());
+            ps.setString(7, roomsEntity.getIdMethod());
+            ps.executeUpdate();
+        }catch (SQLException ex){
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString(), null, null);
+        }
+    }
+
+    public void deleteRental(String user){
+        PreparedStatement ps = null;
+
+        try{
+            String table = "DELETE FROM RoomsRentalTable WHERE idRental=?";
+            ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
+            ps.setString(1, user);
+            ps.executeUpdate();
+        }catch (SQLException ex){
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showException(ex, DorisRooms.getInstance().getLanguage().getConfig().get("MySQL_ErrorConnect").getAsString(), null, null);
+        }
+    }
+
     public ObservableList<RoomsRentalEntity> showRentals(){
         PreparedStatement ps = null;
         ObservableList<RoomsRentalEntity> loginObservableList = FXCollections.observableArrayList();
