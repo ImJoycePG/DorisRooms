@@ -10,7 +10,7 @@
 - Gestión de empleados [100%] **(ReniecAPI)**
 - Gestión de productos de limpieza [100%]
 - Gestión de proveedores [100%] **(RucAPI)**
-- Sistema de reportes [100%] **(Upload to Drive)**
+- Sistema de reportes [100%] **(Upload to Drive & JasperReport)**
 - Compra de productos [100%]
 - Gestión de cuentas [100%]
 
