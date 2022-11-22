@@ -5,6 +5,7 @@
  <br>
  
 - Alquiler de habitación [100%]
+- Reservación de habitación [100%]
 - Gestión de clientes [100%] **(ReniecAPI)**
 - Gestión de empleados [100%] **(ReniecAPI)**
 - Gestión de productos de limpieza [100%]
