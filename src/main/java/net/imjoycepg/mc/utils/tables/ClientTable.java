@@ -100,4 +100,21 @@ public class ClientTable {
         }
         return loginObservableList;
     }
+
+    public ObservableList<String> listClient(){
+        PreparedStatement ps = null;
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try{
+            String table = "SELECT * FROM ClientTable;";
+            ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+                list.add(rs.getString("dniClient") + " | " + rs.getString("namesClient"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

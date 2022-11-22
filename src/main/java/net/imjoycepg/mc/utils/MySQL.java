@@ -277,8 +277,8 @@ public class MySQL {
         String table = "CREATE TABLE IF NOT EXISTS RoomsRentalTable(" +
                 "idRental varchar(5) not null," +
                 "dateJoin date not null," +
-                "dateLeave date not null" +
-                "obsRental varchar (45) not null" +
+                "dateLeave date not null," +
+                "obsRental varchar (45) not null," +
                 "dniEmployee varchar (8) not null," +
                 "dniClient varchar (8) not null," +
                 "idRooms varchar(5) not null," +
@@ -287,7 +287,7 @@ public class MySQL {
                 "CONSTRAINT DNIEMPLOYEE_RENTAL FOREIGN KEY(dniEmployee) references EmployeeTable(dniEmployee),"+
                 "CONSTRAINT DNICLIENT_RENTAL FOREIGN KEY(dniClient)references ClientTable(dniClient),"+
                 "CONSTRAINT IDROOMS_RENTAL FOREIGN KEY(idRooms)references RoomsTable(idRooms),"+
-                "CONSTRAINT IDMETHOR_RENTAL FOREIGN KEY(idMethod) references MethorTable(idMethod)"+
+                "CONSTRAINT IDMETHOD_RENTAL FOREIGN KEY(idMethod) references MethodTable(idMethod)"+
                 ");";
         try{
             connection = this.getConnection();

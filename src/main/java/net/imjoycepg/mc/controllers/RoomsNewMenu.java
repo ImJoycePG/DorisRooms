@@ -28,11 +28,11 @@ public class RoomsNewMenu implements Initializable {
     }
 
     private void updateLanguage(){
-        label_idRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        label_descRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        label_price.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        label_obs.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        label_idType.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
+        label_idRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsNewMenu_IDRoomsLabel").getAsString());
+        label_descRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsNewMenu_DescRoomsLabel").getAsString());
+        label_price.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsNewMenu_PriceRoomsLabel").getAsString());
+        label_obs.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsNewMenu_ObsRoomsLabel").getAsString());
+        label_idType.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsNewMenu_IDTypeRoomsLabel").getAsString());
     }
 
     @FXML

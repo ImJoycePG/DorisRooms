@@ -1,4 +1,4 @@
-package net.imjoycepg.mc.utils.entity;
+package net.imjoycepg.mc.utils.entity.temporal;
 
 import lombok.Getter;
 import lombok.Setter;

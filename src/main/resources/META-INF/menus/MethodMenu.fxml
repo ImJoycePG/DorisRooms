@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="565.0" prefWidth="795.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.MethodMenu">
+   <children>
+      <AnchorPane layoutX="64.0" layoutY="20.0" prefHeight="520.0" prefWidth="296.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;">
+         <children>
+            <Label fx:id="label_idMethod" layoutX="44.0" layoutY="30.0" text="idMethod:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_idMethod" layoutX="44.0" layoutY="47.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_typeMethod" layoutX="44.0" layoutY="82.0" text="Type:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonRegister" defaultButton="true" layoutX="76.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#registerMethod" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonDelete" layoutX="76.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#deleteMethod" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="14.0" layoutY="446.0" onMouseClicked="#closeSubMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ButtonSalida.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="rpta_typeMethod" layoutX="44.0" layoutY="99.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_descMethod" layoutX="44.0" layoutY="139.0" text="Description:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_descMethod" layoutX="44.0" layoutY="156.0" prefHeight="25.0" prefWidth="161.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="306.0" layoutY="10.0" prefHeight="540.0" prefWidth="484.0" style="-fx-background-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-background-radius: 1em;">
+         <children>
+            <TableView fx:id="table_model" layoutX="20.0" layoutY="53.0" prefHeight="444.0" prefWidth="444.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="53.0">
+               <columns>
+                  <TableColumn fx:id="table_column_id" editable="false" prefWidth="103.0" sortable="false" text="idMethod" />
+                  <TableColumn fx:id="table_column_type" editable="false" prefWidth="143.0" sortable="false" text="Type" />
+                  <TableColumn fx:id="table_column_desc" editable="false" prefWidth="197.0" sortable="false" text="Description" />
+               </columns></TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

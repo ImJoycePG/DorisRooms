@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="net.imjoycepg.mc.controllers.RoomsRentalMenu"
-            prefHeight="400.0" prefWidth="600.0">
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="686.0" prefWidth="1187.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.RoomsRentalMenu">
+   <children>
+      <AnchorPane layoutX="40.0" layoutY="22.0" prefHeight="639.0" prefWidth="297.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;">
+         <children>
+            <Button fx:id="buttonRegister" defaultButton="true" layoutX="33.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#registerRental" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="472.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="20.0" layoutY="565.0" onMouseClicked="#closeSubMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ButtonSalida.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="label_idRental" layoutX="47.0" layoutY="27.0" text="idRental:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_idRental" layoutX="47.0" layoutY="44.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_joinRental" layoutX="48.0" layoutY="77.0" text="Join Rental:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="rpta_joinRental" editable="false" layoutX="48.0" layoutY="94.0" onAction="#changeDateJoin" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_leaveRental" layoutX="49.0" layoutY="128.0" text="Leave Rental:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="rpta_leaveRental" editable="false" layoutX="49.0" layoutY="145.0" onAction="#changeDateLeave" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_observation" layoutX="49.0" layoutY="180.0" text="Observation:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rpta_obsRental" layoutX="49.0" layoutY="197.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_dniEmployee" layoutX="49.0" layoutY="231.0" text="DNI Employee:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="rpta_dniEmployee" layoutX="49.0" layoutY="248.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_dniClient" layoutX="51.0" layoutY="284.0" text="DNI Client:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="rpta_dniClient" layoutX="51.0" layoutY="301.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_idRooms" layoutX="52.0" layoutY="335.0" text="idRooms:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="rpta_idRooms" layoutX="52.0" layoutY="352.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label fx:id="label_idMethod" layoutX="53.0" layoutY="388.0" text="idMethod:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="rpta_idMethod" layoutX="53.0" layoutY="405.0" prefHeight="25.0" prefWidth="161.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="306.0" layoutY="10.0" prefHeight="665.0" prefWidth="875.0" style="-fx-background-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-background-radius: 1em;">
+         <children>
+            <TableView fx:id="table_model" layoutX="20.0" layoutY="16.0" prefHeight="639.0" prefWidth="529.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="16.0">
+               <columns>
+                  <TableColumn fx:id="table_column_idRental" editable="false" prefWidth="85.0" sortable="false" text="idRental" />
+                  <TableColumn fx:id="table_column_joinDate" editable="false" prefWidth="86.0" sortable="false" text="Join Date" />
+                  <TableColumn fx:id="table_column_leaveDate" editable="false" prefWidth="92.0" sortable="false" text="Leave Date" />
+                  <TableColumn fx:id="table_column_obs" editable="false" prefWidth="200.0" sortable="false" text="Observation" />
+                  <TableColumn fx:id="table_column_dniEmployee" editable="false" prefWidth="106.0" sortable="false" text="DNI Employee" />
+                  <TableColumn fx:id="table_column_dniClient" editable="false" prefWidth="108.0" sortable="false" text="DNI Client" />
+                  <TableColumn fx:id="table_column_idRooms" editable="false" prefWidth="78.0" sortable="false" text="idRooms" />
+                  <TableColumn fx:id="table_column_idMethod" editable="false" prefWidth="79.0" sortable="false" text="idMethod" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

@@ -27,8 +27,9 @@ import lombok.Setter;
 import net.imjoycepg.mc.utils.*;
 import net.imjoycepg.mc.utils.configs.Database;
 import net.imjoycepg.mc.utils.entity.LoginEntity;
-import net.imjoycepg.mc.utils.entity.OrderProductTemp;
-import net.imjoycepg.mc.utils.entity.ProductTemp;
+import net.imjoycepg.mc.utils.entity.temporal.OrderProductTemp;
+import net.imjoycepg.mc.utils.entity.temporal.ProductTemp;
+import net.imjoycepg.mc.utils.entity.temporal.RoomsTemp;
 import net.imjoycepg.mc.utils.tables.*;
 
 import java.io.*;
@@ -71,6 +72,7 @@ public class DorisRooms {
 
     private final ProductTemp productTemp = new ProductTemp();
     private final OrderProductTemp orderProductTemp = new OrderProductTemp();
+    private final RoomsTemp roomsTemp = new RoomsTemp();
     private final ReportUtil reportUtil = new ReportUtil();
 
     private final JsonFactory JsonFactory = GsonFactory.getDefaultInstance();
@@ -234,6 +236,36 @@ public class DorisRooms {
 
     public void sceneManageRoomsTypeMenu() throws IOException{
         scene = new Scene(loadFXML("RoomsTypeMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageRoomsEditMenu() throws IOException{
+        scene = new Scene(loadFXML("RoomsEditMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+    public void sceneManageRoomsRentalMenu() throws IOException{
+        scene = new Scene(loadFXML("RoomsRentalMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+    public void sceneManageRoomsReservationMenu() throws IOException{
+        scene = new Scene(loadFXML("RoomsReservationsMenu"));
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
+
+    public void sceneManageMethodMenu() throws IOException{
+        scene = new Scene(loadFXML("MethodMenu"));
         stage.setScene(scene);
         stage.centerOnScreen();
         scene.setFill(Color.TRANSPARENT);

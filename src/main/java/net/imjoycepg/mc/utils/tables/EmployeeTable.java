@@ -99,5 +99,22 @@ public class EmployeeTable {
         }
         return loginObservableList;
     }
+
+    public ObservableList<String> listEmployee(){
+        PreparedStatement ps = null;
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try{
+            String table = "SELECT * FROM EmployeeTable;";
+            ps = DorisRooms.getInstance().getMySQL().getConnection().prepareStatement(table);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+                list.add(rs.getString("dniEmployee") + " | " + rs.getString("namesEmployee"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
 

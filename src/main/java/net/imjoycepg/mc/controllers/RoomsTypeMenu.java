@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import net.imjoycepg.mc.DorisRooms;
 import net.imjoycepg.mc.utils.entity.RoomsTypeEntity;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,10 +36,10 @@ public class RoomsTypeMenu implements Initializable {
     }
 
     private void updateLanguage(){
-        label_idTypeRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        label_name.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        table_column_idTypeRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
-        table_column_nameTypeRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("").getAsString());
+        label_idTypeRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsTypeMenu_IDTypeRoomsLabel").getAsString());
+        label_name.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsTypeMenu_NameTypeRooms").getAsString());
+        table_column_idTypeRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsTypeMenu_TableIDTypeRooms").getAsString());
+        table_column_nameTypeRooms.setText(DorisRooms.getInstance().getLanguage().getConfig().get("RoomsTypeMenu_TableNameTypeRooms").getAsString());
     }
 
     private void tableModel(){
@@ -152,5 +153,13 @@ public class RoomsTypeMenu implements Initializable {
         tableModel();
     }
 
+    @FXML
+    public void closeSubMenu(){
+        try {
+            DorisRooms.getInstance().sceneManageRooms();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

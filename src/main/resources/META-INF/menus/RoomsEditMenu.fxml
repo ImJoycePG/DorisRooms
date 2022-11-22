@@ -4,52 +4,52 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="485.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.RoomsNewMenu">
+<AnchorPane prefHeight="485.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imjoycepg.mc.controllers.RoomsEditMenu">
    <children>
-      <Label fx:id="label_idProduct" layoutX="72.0" layoutY="58.0" text="idProduct:">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rpta_idProduct" layoutX="72.0" layoutY="88.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
-      <Label fx:id="label_name" layoutX="315.0" layoutY="58.0" text="Name:">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rpta_name" layoutX="315.0" layoutY="88.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
       <ImageView fitHeight="183.0" fitWidth="165.0" layoutX="597.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/DorisRoomsAlerts.png" />
          </image>
       </ImageView>
-      <Label fx:id="label_stock" layoutX="72.0" layoutY="150.0" text="Stock:">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rpta_stock" layoutX="72.0" layoutY="180.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
-      <Label fx:id="label_dateJoin" layoutX="315.0" layoutY="150.0" text="Date Join:">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rpta_dateJoin" layoutX="315.0" layoutY="180.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
-      <Label fx:id="label_idCategory" layoutX="72.0" layoutY="235.0" text="idCategory:">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rpta_idCategory" layoutX="72.0" layoutY="265.0" prefHeight="40.0" prefWidth="304.0" style="-fx-background-radius: 1em;" />
       <ImageView fitHeight="105.0" fitWidth="81.0" layoutX="695.0" layoutY="380.0" onMouseClicked="#closeSubMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ButtonSalida.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="73.0" layoutX="416.0" layoutY="249.0" onMouseClicked="#registerButton" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="87.0" fitWidth="73.0" layoutX="416.0" layoutY="249.0" onMouseClicked="#modifyButton" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/RegisterComplete.png" />
          </image>
       </ImageView>
+      <Label fx:id="label_idRooms" layoutX="80.0" layoutY="50.0" text="idRooms:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_id" layoutX="80.0" layoutY="80.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_descRooms" layoutX="323.0" layoutY="50.0" text="Description:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_desc" layoutX="323.0" layoutY="80.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_price" layoutX="80.0" layoutY="142.0" text="Price:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_price" layoutX="80.0" layoutY="172.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_obs" layoutX="323.0" layoutY="142.0" text="Observation:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rpta_obs" layoutX="323.0" layoutY="172.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 1em;" />
+      <Label fx:id="label_idType" layoutX="80.0" layoutY="227.0" text="idTypeRooms">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="rpta_idType" layoutX="80.0" layoutY="265.0" prefHeight="40.0" prefWidth="308.0" />
    </children>
 </AnchorPane>
