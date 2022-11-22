@@ -174,9 +174,26 @@ public class RoomsRentalMenu implements Initializable {
         roomsRentalEntity.setIdRooms(rpta_idRooms.getValue().substring(0, 5));
         roomsRentalEntity.setIdMethod(rpta_idMethod.getValue().substring(0, 5));
         DorisRooms.getInstance().getRoomsRentalTable().insertRoomsRental(roomsRentalEntity);
-
+        DorisRooms.getInstance().getRoomsRentalTemp().setIdRental(rpta_idRental.getText());
+        DorisRooms.getInstance().getReportUtil().FactureVoucherPDF();
         tableModel();
         cleanText();
+    }
+
+    @FXML
+    public void voucherPrint(){
+        if(table_model.getSelectionModel().getSelectedItem() == null){
+            FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
+            FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("SelectTableViewTitle").getAsString(),
+                    null, DorisRooms.getInstance().getLanguage().getConfig().get("SelectTableViewDescription").getAsString());
+            return;
+        }
+
+        String idRental = table_model.getSelectionModel().getSelectedItem().getIdRental();
+        DorisRooms.getInstance().getRoomsRentalTemp().setIdRental(idRental);
+        DorisRooms.getInstance().getReportUtil().FactureVoucherPDF();
+
+
     }
 
     @FXML

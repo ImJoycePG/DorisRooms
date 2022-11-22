@@ -9,22 +9,22 @@
    <children>
       <AnchorPane layoutX="40.0" layoutY="22.0" prefHeight="639.0" prefWidth="297.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;">
          <children>
-            <Button fx:id="buttonRegister" defaultButton="true" layoutX="33.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#registerRental" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+            <Button fx:id="buttonRegister" defaultButton="true" layoutX="33.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#registerRental" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#modifyRental" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="499.0" mnemonicParsing="false" onMouseClicked="#modifyRental" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#updateRental" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#updateRental" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#deleteRental" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="499.0" mnemonicParsing="false" onMouseClicked="#deleteRental" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
@@ -82,6 +82,11 @@
                </font>
             </Label>
             <ComboBox fx:id="rpta_idMethod" layoutX="53.0" layoutY="405.0" prefHeight="25.0" prefWidth="161.0" />
+            <ImageView fitHeight="94.0" fitWidth="72.0" layoutX="155.0" layoutY="559.0" onMouseClicked="#voucherPrint" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ButtonVoucher.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="306.0" layoutY="10.0" prefHeight="665.0" prefWidth="875.0" style="-fx-background-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-background-radius: 1em;">

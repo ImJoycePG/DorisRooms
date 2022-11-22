@@ -37,6 +37,24 @@ public class ReportUtil {
         }
     }
 
+    private void reportsExportVoucher(String ruta, String file) {
+        try {
+            Map parametro = new HashMap();
+            parametro.put("C_ID-RENTAL", DorisRooms.getInstance().getRoomsRentalTemp().getIdRental());
+
+            JasperPrint inform = JasperFillManager.fillReport(ruta, parametro, DorisRooms.getInstance().getMySQL().getConnection());
+            JasperExportManager.exportReportToPdfFile(inform, file);
+
+
+            JasperViewer view = new JasperViewer(inform, false);
+            view.setTitle("INFORM");
+            view.setVisible(false);
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
     private void uploadDrive(File JFC) {
         try {
             File fileName = new File(JFC.getAbsolutePath() + ".pdf");
@@ -70,6 +88,35 @@ public class ReportUtil {
                     printWriter.print(ruta);
                 }
                 reportsExport(ruta, PATH);
+                if (!(PATH.endsWith(".pdf"))) {
+                    File temp = new File(PATH + ".pdf");
+                    JFC.renameTo(temp);
+                }
+
+                uploadDrive(JFC);
+
+            }
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void FactureVoucherPDF() {
+        try {
+            String ruta = "src/main/resources/META-INF/reports/Voucher.jasper";
+
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Files *.PDF", "pdf", "PDF"));
+            int selection = fileChooser.showSaveDialog(null);
+
+            if (selection == JFileChooser.APPROVE_OPTION) {
+                File JFC = fileChooser.getSelectedFile();
+                String PATH = JFC.getAbsolutePath();
+
+                try (PrintWriter printWriter = new PrintWriter(JFC)) {
+                    printWriter.print(ruta);
+                }
+                reportsExportVoucher(ruta, PATH);
                 if (!(PATH.endsWith(".pdf"))) {
                     File temp = new File(PATH + ".pdf");
                     JFC.renameTo(temp);

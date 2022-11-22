@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Voucher" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1300df07-930a-417d-994e-4a020281519b">
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DorisRooms.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="C_ID-RENTAL" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM RoomsRentalTable WHERE idRental=$P{C_ID-RENTAL}]]>
+	</queryString>
+	<field name="idRental" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idRental"/>
+		<property name="com.jaspersoft.studio.field.label" value="idRental"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="dateJoin" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dateJoin"/>
+		<property name="com.jaspersoft.studio.field.label" value="dateJoin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="dateLeave" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dateLeave"/>
+		<property name="com.jaspersoft.studio.field.label" value="dateLeave"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="obsRental" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="obsRental"/>
+		<property name="com.jaspersoft.studio.field.label" value="obsRental"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="dniEmployee" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dniEmployee"/>
+		<property name="com.jaspersoft.studio.field.label" value="dniEmployee"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="dniClient" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dniClient"/>
+		<property name="com.jaspersoft.studio.field.label" value="dniClient"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="idRooms" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idRooms"/>
+		<property name="com.jaspersoft.studio.field.label" value="idRooms"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<field name="idMethod" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idMethod"/>
+		<property name="com.jaspersoft.studio.field.label" value="idMethod"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="RoomsRentalTable"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="0" width="153" height="30" uuid="8f65a6b9-0c1c-4f37-8321-29ea8a2d3905"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="19"/>
+				</textElement>
+				<text><![CDATA[DORIS ROOMS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="30" width="280" height="36" uuid="a3f33fdc-8a4b-450a-815b-992b1efaad7c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11"/>
+				</textElement>
+				<text><![CDATA[Dirección: Av. César Vallejo 230, Calipuy, Santiago de Chuco, La Libertad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="60" width="200" height="14" uuid="97c69570-5832-4f17-a556-f98f7a281380"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11"/>
+				</textElement>
+				<text><![CDATA[Telef: 948148087]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="15" width="55" height="18" uuid="d3f90604-979b-47d7-aa81-19d48c7842c7"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="35" width="554" height="1" uuid="fa560645-437f-4e0d-8115-348c17852b4c"/>
+			</line>
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="360" y="16" width="119" height="19" uuid="0ad2675e-0056-4197-8313-ecea2c8980ec"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="16" width="55" height="18" uuid="109a2804-8e0c-4a3e-b445-85efb7d794b6"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="51" y="16" width="80" height="18" uuid="204db05a-a9bb-437d-8f70-301106ef235c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="46" width="55" height="18" uuid="f3e4e28d-f20c-4201-9d09-c402764a6be5"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R.U.C]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="66" width="554" height="1" uuid="356c9000-ba9f-4c39-a50e-e8210bc99125"/>
+			</line>
+			<staticText>
+				<reportElement x="50" y="50" width="230" height="16" uuid="a6aff25e-168c-41e9-b3a9-2e4a2c0c28f2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[20100190797]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="100" width="39" height="19" uuid="3db498bc-8a6e-4da8-a2a7-8fad4f791722">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed32fcce-65ea-498e-a81b-97c6dfb58022"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="100" width="100" height="18" uuid="dcb9847b-e8b6-44bc-a326-8a825cbb98a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60153065-41eb-495b-a1f5-11d64038706c"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Fecha Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="98" width="79" height="23" uuid="abd3ae12-ac46-4739-9978-0090638ecf11">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="048279ae-01db-4ba4-a084-079dca9f81a7"/>
+				</reportElement>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Fecha Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="100" width="43" height="19" uuid="96aedd51-cc43-4348-bca1-5c855dee8b5a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c37300d9-a709-43da-91cf-8de2a50e3c9d"/>
+				</reportElement>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="101" width="52" height="19" uuid="d124b3fb-f925-4b4b-8dea-697114234d77">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3ffb1e3-fe0c-4389-8767-8acfbe5f905b"/>
+				</reportElement>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[idRooms]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="19" uuid="d7f3bba4-3052-4c8e-b3e7-145b6d925ef8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed32fcce-65ea-498e-a81b-97c6dfb58022"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idRental}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="82" height="18" uuid="abc23663-fed1-49a5-966b-a07ddda11a6d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60153065-41eb-495b-a1f5-11d64038706c"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateJoin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="-2" width="100" height="22" uuid="8c9e6731-e814-4b0b-9dd2-97bd76991525">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="048279ae-01db-4ba4-a084-079dca9f81a7"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateLeave}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="-1" width="86" height="19" uuid="8a36dfae-37cf-4227-ad11-18ee736053ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c37300d9-a709-43da-91cf-8de2a50e3c9d"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dniClient}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="0" width="88" height="20" uuid="6cbe43a7-9cb0-437e-8634-3ed321692e06">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3ffb1e3-fe0c-4389-8767-8acfbe5f905b"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idRooms}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

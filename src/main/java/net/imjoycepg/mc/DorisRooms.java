@@ -29,6 +29,7 @@ import net.imjoycepg.mc.utils.configs.Database;
 import net.imjoycepg.mc.utils.entity.LoginEntity;
 import net.imjoycepg.mc.utils.entity.temporal.OrderProductTemp;
 import net.imjoycepg.mc.utils.entity.temporal.ProductTemp;
+import net.imjoycepg.mc.utils.entity.temporal.RoomsRentalTemp;
 import net.imjoycepg.mc.utils.entity.temporal.RoomsTemp;
 import net.imjoycepg.mc.utils.tables.*;
 
@@ -73,6 +74,7 @@ public class DorisRooms {
     private final ProductTemp productTemp = new ProductTemp();
     private final OrderProductTemp orderProductTemp = new OrderProductTemp();
     private final RoomsTemp roomsTemp = new RoomsTemp();
+    private final RoomsRentalTemp roomsRentalTemp = new RoomsRentalTemp();
     private final ReportUtil reportUtil = new ReportUtil();
 
     private final JsonFactory JsonFactory = GsonFactory.getDefaultInstance();

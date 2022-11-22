@@ -9,22 +9,22 @@
    <children>
       <AnchorPane layoutX="40.0" layoutY="22.0" prefHeight="639.0" prefWidth="297.0" style="-fx-background-color: white; -fx-border-color: linear-gradient(to right bottom, #000cff, #007cff, #00afff, #00d9f9, #53fbdd); -fx-border-radius: 2em; -fx-border-width: 2; -fx-background-radius: 2em;">
          <children>
-            <Button fx:id="buttonRegister" defaultButton="true" layoutX="33.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#registerRental" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
+            <Button fx:id="buttonRegister" defaultButton="true" layoutX="33.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#registerRental" prefHeight="25.0" prefWidth="97.0" text="Register" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#modifyRental" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
+            <Button fx:id="buttonEdit" layoutX="33.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#modifyRental" prefHeight="25.0" prefWidth="97.0" text="Modify" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#updateRental" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
+            <Button fx:id="buttonUpdate" layoutX="142.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#updateRental" prefHeight="26.0" prefWidth="97.0" text="Update" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#deleteRental" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="buttonDelete" layoutX="143.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#deleteRental" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: darkred;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
@@ -82,7 +82,7 @@
          <children>
             <TableView fx:id="table_model" layoutX="20.0" layoutY="16.0" prefHeight="639.0" prefWidth="529.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="16.0">
                <columns>
-                  <TableColumn fx:id="table_column_idRental" editable="false" prefWidth="85.0" sortable="false" text="idRental" />
+                  <TableColumn fx:id="table_column_idRental" editable="false" prefWidth="85.0" sortable="false" text="idReservation" />
                   <TableColumn fx:id="table_column_joinDate" editable="false" prefWidth="92.0" sortable="false" text="Join Date" />
                   <TableColumn fx:id="table_column_leaveDate" editable="false" prefWidth="86.0" sortable="false" text="Leave Date" />
                   <TableColumn fx:id="table_column_obs" editable="false" prefWidth="228.0" sortable="false" text="Observation" />

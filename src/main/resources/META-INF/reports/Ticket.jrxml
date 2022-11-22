@@ -98,14 +98,14 @@ WHERE ot.idOrder like $P{C_ID-ORDER}]]>
 				<text><![CDATA[DORIS ROOMS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="180" y="31" width="200" height="36" uuid="c6150dbc-383f-4a42-9db4-53bea764e3bc"/>
+				<reportElement x="150" y="31" width="280" height="36" uuid="c6150dbc-383f-4a42-9db4-53bea764e3bc"/>
 				<textElement textAlignment="Center">
 					<font fontName="Courier New" size="11"/>
 				</textElement>
 				<text><![CDATA[Dirección: Av. César Vallejo 230, Calipuy, Santiago de Chuco, La Libertad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="180" y="62" width="200" height="14" uuid="f62c1349-901e-4e2f-a298-e4d6a6c3eaf4"/>
+				<reportElement x="180" y="60" width="200" height="14" uuid="f62c1349-901e-4e2f-a298-e4d6a6c3eaf4"/>
 				<textElement textAlignment="Center">
 					<font fontName="Courier New" size="11"/>
 				</textElement>
