@@ -62,35 +62,24 @@ public class MainMenu implements Initializable {
     }
 
     @FXML
-    public void manageProducts(){
-        if(DorisRooms.getInstance().getLoginEntity().checkAdminOrRoot()){
-            try {
-                DorisRooms.getInstance().sceneManageProduct();
-            } catch (IOException e) {
-                FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-                FXAlert.showException(e, "");
-            }
-        }else{
+    public void manageProducts() {
+        try {
+            DorisRooms.getInstance().sceneManageProduct();
+        } catch (IOException e) {
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-            FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("NoAccessAdministratorMenuTitle").getAsString(),
-                    null, DorisRooms.getInstance().getLanguage().getConfig().get("NoAccessAdministratorMenuDescription").getAsString());
+            FXAlert.showException(e, "");
         }
+
     }
 
     @FXML
-    public void manageRooms(){
+    public void manageRooms() {
 
-        if(DorisRooms.getInstance().getLoginEntity().checkAdminOrRoot()){
-            try {
-                DorisRooms.getInstance().sceneManageRooms();
-            } catch (IOException e) {
-                FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-                FXAlert.showException(e, "");
-            }
-        }else{
+        try {
+            DorisRooms.getInstance().sceneManageRooms();
+        } catch (IOException e) {
             FXAlert.setGlobalTitleBarIcon(DorisRooms.getInstance().getAlertImage());
-            FXAlert.showWarning(DorisRooms.getInstance().getLanguage().getConfig().get("NoAccessAdministratorMenuTitle").getAsString(),
-                    null, DorisRooms.getInstance().getLanguage().getConfig().get("NoAccessAdministratorMenuDescription").getAsString());
+            FXAlert.showException(e, "");
         }
     }
 

@@ -15,7 +15,7 @@
             <TableColumn fx:id="table_column_idtype" prefWidth="117.0" text="idTypeRoom" />
         </columns>
       </TableView>
-      <TextField layoutX="25.0" layoutY="27.0" prefHeight="37.0" prefWidth="206.0" promptText="Search" />
+      <TextField fx:id="searchText" layoutX="25.0" layoutY="27.0" prefHeight="37.0" onMouseClicked="#searchForName" prefWidth="206.0" promptText="Search" />
       <Button layoutX="949.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openTypeMenu" prefHeight="37.0" prefWidth="106.0" text="New Type Room" />
       <Button layoutX="255.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openNewRoom" prefHeight="37.0" prefWidth="106.0" text="New Room" />
       <Button layoutX="383.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#openEditMenu" prefHeight="37.0" prefWidth="106.0" text="Edit Room" />
